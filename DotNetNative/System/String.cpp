@@ -77,12 +77,12 @@ namespace System
 	//		++m_length;
 	//	}
 
-	//	m_string = shared_ptr<utf16char[]>(DNN_New utf16char[static_cast<size_t>(m_length) + 1], Deleter<utf16char[]>(), DNN_Allocator(utf16char[]));
+	//	m_string = shared_ptr<uint16_t[]>(DNN_New uint16_t[static_cast<size_t>(m_length) + 1], Deleter<uint16_t[]>(), DNN_Allocator(uint16_t[]));
 
 	//	for (int i = 0; i < m_length; ++i)
 	//	{
 	//		// We assume ASCII
-	//		m_string.get()[i] = static_cast<utf16char>(str[i]);
+	//		m_string.get()[i] = static_cast<uint16_t>(str[i]);
 	//	}
 
 	//	m_string.get()[m_length] = 0;

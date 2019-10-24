@@ -42,7 +42,7 @@ namespace System
 
 		virtual int CompareTo(const Char& chr) const noexcept override { return m_char - chr.m_char; }
 		constexpr int CompareTo(const uint16_t chr) const noexcept { return m_char - chr; }
-		constexpr operator utf16char() const noexcept { return m_char; }
+		constexpr operator uint16_t() const noexcept { return m_char; }
 
 		static uint16_t Parse(const String& str);
 		static bool TryParse(const String& str, uint16_t& outResult) noexcept;

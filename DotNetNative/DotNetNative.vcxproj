@@ -182,7 +182,6 @@
     <ClInclude Include="System\StringBuilder.h" />
     <ClInclude Include="System\Text\UnicodeUtility.h" />
     <ClInclude Include="System\UnicodeCategory.h" />
-    <ClInclude Include="xxhash.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Memory.cpp" />
@@ -200,7 +199,6 @@
     <ClCompile Include="System\Object.cpp" />
     <ClCompile Include="System\String.cpp" />
     <ClCompile Include="System\StringBuilder.cpp" />
-    <ClCompile Include="xxhash.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -115,7 +115,6 @@
     <ClInclude Include="System\IEquatable.h">
       <Filter>System</Filter>
     </ClInclude>
-    <ClInclude Include="xxhash.h" />
     <ClInclude Include="System\Collections\HashHelpers.h">
       <Filter>System\Collections</Filter>
     </ClInclude>
@@ -162,7 +161,6 @@
     <ClCompile Include="System\Collections\EqualityComparer.cpp">
       <Filter>System\Collections</Filter>
     </ClCompile>
-    <ClCompile Include="xxhash.cpp" />
     <ClCompile Include="System\Collections\HashHelpers.cpp">
       <Filter>System\Collections</Filter>
     </ClCompile>

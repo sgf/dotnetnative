@@ -38,7 +38,7 @@ namespace System
 		String& operator=(String&& mov) noexcept;
 
 		uint16_t operator[](const int index) const;
-		operator const utf16char* () const noexcept;
+		operator const uint16_t* () const noexcept;
 
 		bool Equals(const String& obj) const noexcept;
 		virtual String ToString() override;

@@ -1,5 +1,7 @@
 ﻿#include "MemoryUtil.h"
 
+using namespace System;
+
 #ifndef DNN_NO_MEMORY_OVERLOAD
 
 _Ret_notnull_ _Post_writable_byte_size_(size)
