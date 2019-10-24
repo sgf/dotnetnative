@@ -20,33 +20,33 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{5C2CEF89-E955-4A43-A100-7AF4A789AD86}</ProjectGuid>
+    <ProjectGuid>{A909ADDB-D4D9-44AE-8043-ED31F34C4B8C}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>DotNetNative</RootNamespace>
+    <RootNamespace>TestRunApp</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -70,6 +70,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
@@ -79,17 +82,35 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LinkIncremental>false</LinkIncremental>
-  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -98,10 +119,12 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
@@ -112,32 +135,15 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
-    </ClCompile>
-    <Link>
-      <SubSystem>Console</SubSystem>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -147,60 +153,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="GlobalDefs.h" />
-    <ClInclude Include="Memory.h" />
-    <ClInclude Include="MemoryUtil.h" />
-    <ClInclude Include="System\Array.h" />
-    <ClInclude Include="System\BitConverter.h" />
-    <ClInclude Include="System\Buffers\Binary\BinaryPrimitives.h" />
-    <ClInclude Include="System\Byte.h" />
-    <ClInclude Include="System\Char.h" />
-    <ClInclude Include="System\CharEnumerator.h" />
-    <ClInclude Include="System\CharUnicodeInfo.h" />
-    <ClInclude Include="System\Collections\Dictionary.h" />
-    <ClInclude Include="System\Collections\EqualityComparer.h" />
-    <ClInclude Include="System\Collections\GenericEnumerator.h" />
-    <ClInclude Include="System\Collections\HashHelpers.h" />
-    <ClInclude Include="System\Collections\ICollection.h" />
-    <ClInclude Include="System\Collections\IDictionary.h" />
-    <ClInclude Include="System\Collections\IEnumerable.h" />
-    <ClInclude Include="System\Collections\IEnumerator.h" />
-    <ClInclude Include="System\Collections\IEqualityComparer.h" />
-    <ClInclude Include="System\Collections\IReadOnlyCollection.h" />
-    <ClInclude Include="System\Collections\IReadOnlyDictionary.h" />
-    <ClInclude Include="System\Collections\IReadOnlyList.h" />
-    <ClInclude Include="System\Collections\KeyValuePair.h" />
-    <ClInclude Include="System\Environment.h" />
-    <ClInclude Include="System\Exception.h" />
-    <ClInclude Include="System\Globalization\NumberStyles.h" />
-    <ClInclude Include="System\IComparable.h" />
-    <ClInclude Include="System\IEquatable.h" />
-    <ClInclude Include="System\Int32.h" />
-    <ClInclude Include="System\Object.h" />
-    <ClInclude Include="System\ObjectImpl.h" />
-    <ClInclude Include="System\String.h" />
-    <ClInclude Include="System\StringBuilder.h" />
-    <ClInclude Include="System\Text\UnicodeUtility.h" />
-    <ClInclude Include="System\UnicodeCategory.h" />
-    <ClInclude Include="xxhash.h" />
+    <ClCompile Include="TestRunApp.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Memory.cpp" />
-    <ClCompile Include="MemoryUtil.cpp" />
-    <ClCompile Include="System\Byte.cpp" />
-    <ClCompile Include="System\Char.cpp" />
-    <ClCompile Include="System\CharEnumerator.cpp" />
-    <ClCompile Include="System\CharUnicodeInfo.cpp" />
-    <ClCompile Include="System\CharUnicodeInfoData.cpp" />
-    <ClCompile Include="System\Collections\EqualityComparer.cpp" />
-    <ClCompile Include="System\Collections\HashHelpers.cpp" />
-    <ClCompile Include="System\Environment.cpp" />
-    <ClCompile Include="System\Exception.cpp" />
-    <ClCompile Include="System\Int32.cpp" />
-    <ClCompile Include="System\Object.cpp" />
-    <ClCompile Include="System\String.cpp" />
-    <ClCompile Include="System\StringBuilder.cpp" />
-    <ClCompile Include="xxhash.cpp" />
+    <ProjectReference Include="..\DotNetNative\DotNetNative.vcxproj">
+      <Project>{5c2cef89-e955-4a43-a100-7af4a789ad86}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

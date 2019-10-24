@@ -1,9 +1,7 @@
-#include "Environment.h"
+﻿#include "Environment.h"
 
-namespace DotNetNative
+
+namespace System
 {
-    namespace System
-    {
-        const String Environment::NewLine("\r\n");
-    }
+	const String Environment::NewLine("\r\n");
 }

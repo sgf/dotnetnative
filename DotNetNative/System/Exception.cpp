@@ -1,90 +1,88 @@
-#include "Exception.h"
+﻿#include "Exception.h"
 
-namespace DotNetNative
+
+namespace System
 {
-    namespace System
-    {
-        ///////////////////////////////////////////////////// Exception /////////////////////////////////////////////////////
-        Exception::Exception(const char *message)
-            : std::exception(message)
-        {
-        }
+	///////////////////////////////////////////////////// Exception /////////////////////////////////////////////////////
+	Exception::Exception(const char* message)
+		: std::exception(message)
+	{
+	}
 
-        ///////////////////////////////////////////////////// SystemException /////////////////////////////////////////////////////
+	///////////////////////////////////////////////////// SystemException /////////////////////////////////////////////////////
 
-        SystemException::SystemException(const char *message)
-            : Exception(message)
-        {
-        }
+	SystemException::SystemException(const char* message)
+		: Exception(message)
+	{
+	}
 
-        ///////////////////////////////////////////////////// ArgumentException /////////////////////////////////////////////////////
+	///////////////////////////////////////////////////// ArgumentException /////////////////////////////////////////////////////
 
-        ArgumentException::ArgumentException(const char *message)
-            : SystemException(message)
-        {
-        }
+	ArgumentException::ArgumentException(const char* message)
+		: SystemException(message)
+	{
+	}
 
-        ///////////////////////////////////////////////////// ArgumentNullException /////////////////////////////////////////////////////
+	///////////////////////////////////////////////////// ArgumentNullException /////////////////////////////////////////////////////
 
-        ArgumentNullException::ArgumentNullException(const char *message)
-            : SystemException(message)
-        {
-        }
+	ArgumentNullException::ArgumentNullException(const char* message)
+		: SystemException(message)
+	{
+	}
 
-        ///////////////////////////////////////////////////// ArgumentOutOfRangeException /////////////////////////////////////////////////////
+	///////////////////////////////////////////////////// ArgumentOutOfRangeException /////////////////////////////////////////////////////
 
-        ArgumentOutOfRangeException::ArgumentOutOfRangeException(const char *message)
-            : SystemException(message)
-        {
-        }
+	ArgumentOutOfRangeException::ArgumentOutOfRangeException(const char* message)
+		: SystemException(message)
+	{
+	}
 
-        ///////////////////////////////////////////////////// NullReferenceException /////////////////////////////////////////////////////
+	///////////////////////////////////////////////////// NullReferenceException /////////////////////////////////////////////////////
 
-        NullReferenceException::NullReferenceException(const char *message)
-            : SystemException(message)
-        {
-        }
+	NullReferenceException::NullReferenceException(const char* message)
+		: SystemException(message)
+	{
+	}
 
-        ///////////////////////////////////////////////////// NotImplementedException /////////////////////////////////////////////////////
+	///////////////////////////////////////////////////// NotImplementedException /////////////////////////////////////////////////////
 
-        NotImplementedException::NotImplementedException(const char *message)
-            : SystemException(message)
-        {
-        }
+	NotImplementedException::NotImplementedException(const char* message)
+		: SystemException(message)
+	{
+	}
 
-        ///////////////////////////////////////////////////// NotSupportedException /////////////////////////////////////////////////////
+	///////////////////////////////////////////////////// NotSupportedException /////////////////////////////////////////////////////
 
-        NotSupportedException::NotSupportedException(const char *message)
-            : SystemException(message)
-        {
-        }
+	NotSupportedException::NotSupportedException(const char* message)
+		: SystemException(message)
+	{
+	}
 
-        ///////////////////////////////////////////////////// InvalidOperationException /////////////////////////////////////////////////////
+	///////////////////////////////////////////////////// InvalidOperationException /////////////////////////////////////////////////////
 
-        InvalidOperationException::InvalidOperationException(const char *message)
-            : SystemException(message)
-        {
-        }
+	InvalidOperationException::InvalidOperationException(const char* message)
+		: SystemException(message)
+	{
+	}
 
-        ///////////////////////////////////////////////////// IndexOutOfRangeException /////////////////////////////////////////////////////
+	///////////////////////////////////////////////////// IndexOutOfRangeException /////////////////////////////////////////////////////
 
-        IndexOutOfRangeException::IndexOutOfRangeException(const char *message)
-            : SystemException(message)
-        {
-        }
+	IndexOutOfRangeException::IndexOutOfRangeException(const char* message)
+		: SystemException(message)
+	{
+	}
 
-        ///////////////////////////////////////////////////// FormatException /////////////////////////////////////////////////////
+	///////////////////////////////////////////////////// FormatException /////////////////////////////////////////////////////
 
-        FormatException::FormatException(const char *message)
-            : SystemException(message)
-        {
-        }
+	FormatException::FormatException(const char* message)
+		: SystemException(message)
+	{
+	}
 
-        ///////////////////////////////////////////////////// KeyNotFoundException /////////////////////////////////////////////////////
+	///////////////////////////////////////////////////// KeyNotFoundException /////////////////////////////////////////////////////
 
-        KeyNotFoundException::KeyNotFoundException(const char *message)
-            : SystemException(message)
-        {
-        }
-    }
+	KeyNotFoundException::KeyNotFoundException(const char* message)
+		: SystemException(message)
+	{
+	}
 }

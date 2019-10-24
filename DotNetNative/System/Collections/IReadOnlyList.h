@@ -3,7 +3,7 @@
 
 #include "IReadOnlyCollection.h"
 
-namespace DotNetNative
+
 {
     namespace System
     {
