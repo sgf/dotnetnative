@@ -7,7 +7,7 @@
 #include <type_traits>
 #include <functional>
 #include <new>
-#include <memory>Byte
+#include <memory>
 #include <type_traits>
 #include <vcruntime_new.h>
 #include <exception>
