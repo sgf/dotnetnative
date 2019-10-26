@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="System">
+      <UniqueIdentifier>{14367ee8-c492-44fb-b1c9-c181b867a47e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Buffers">
+      <UniqueIdentifier>{b025f3a0-53fd-4ff0-bfe2-739491104edd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Buffers\Binary">
+      <UniqueIdentifier>{6c24b3c9-936f-4a30-aeef-7faddd0dfdea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Collections">
+      <UniqueIdentifier>{38820bb9-4eb4-499b-9e4e-bb84fafe9499}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Globalization">
+      <UniqueIdentifier>{1f2f604e-fa7f-435c-8e42-15a139acd064}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Text">
+      <UniqueIdentifier>{285185f4-38bf-4ae4-a03d-d21a298ba793}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="base">
+      <UniqueIdentifier>{1e1fd2c6-beda-43c6-8a8c-3de6039549bf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Int32.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\String.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\StringBuilder.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\ValueObject.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Array.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Byte.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Char.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Buffers\Binary\BinaryPrimitives.h">
+      <Filter>System\Buffers\Binary</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Collections\Dictionary.h">
+      <Filter>System\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Collections\IEnumerable.h">
+      <Filter>System\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Collections\IEnumerator.h">
+      <Filter>System\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Collections\IEqualityComparer.h">
+      <Filter>System\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Collections\IReadOnlyCollection.h">
+      <Filter>System\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Collections\IReadOnlyDictionary.h">
+      <Filter>System\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Collections\IReadOnlyList.h">
+      <Filter>System\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Collections\KeyValuePair.h">
+      <Filter>System\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Collections\ICollection.h">
+      <Filter>System\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Collections\HashHelpers.h">
+      <Filter>System\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Collections\EqualityComparer.h">
+      <Filter>System\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Globalization\NumberStyles.h">
+      <Filter>System\Globalization</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Environment.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Exception.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\CharEnumerator.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\CharUnicodeInfo.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\BitConverter.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Collections\GenericEnumerator.h">
+      <Filter>System\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="System\IComparable.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Collections\IDictionary.h">
+      <Filter>System\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Object.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\ObjectImpl.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Text\UnicodeUtility.h">
+      <Filter>System\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalDefs.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Memory.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryUtil.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="xxhash.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="System\UnicodeCategory.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="System\IEquatable.h">
+      <Filter>System</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="System.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Char.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Byte.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Collections\HashHelpers.cpp">
+      <Filter>System\Collections</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Collections\EqualityComparer.cpp">
+      <Filter>System\Collections</Filter>
+    </ClCompile>
+    <ClCompile Include="xxhash.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Object.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="System\CharEnumerator.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="System\CharUnicodeInfo.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="System\CharUnicodeInfoData.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Environment.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Exception.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Int32.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="System\String.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="System\StringBuilder.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryUtil.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="Memory.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -1,9 +1,4 @@
-﻿#include "../MemoryUtil.h"
-#include "Char.h"
-#include "Exception.h"
-#include "String.h"
-#include "CharUnicodeInfo.h"
-
+﻿#include "Char.h"
 
 namespace System
 {
@@ -154,7 +149,7 @@ namespace System
 		return static_cast<int>(m_char) | (static_cast<int>(m_char) << 16);
 	}
 
-	Char Char::Parse(const String& str)
+	uint16_t Char::Parse(const String& str)
 	{
 		if (str.Length() != 1)
 		{
@@ -164,7 +159,7 @@ namespace System
 		return str[0];
 	}
 
-	bool Char::TryParse(const String& str, Char& outResult) noexcept
+	bool Char::TryParse(const String& str, uint16_t& outResult) noexcept
 	{
 		if (str.Length() != 1)
 		{

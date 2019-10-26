@@ -1,7 +1,5 @@
-﻿#ifndef _DOTNETNATIVE_SYSTEM_OBJECT_H_
-#define _DOTNETNATIVE_SYSTEM_OBJECT_H_
-
-#include "Exception.h"
+﻿#pragma once
+#include "Object.h"
 
 namespace System
 {
@@ -25,4 +23,3 @@ namespace System
 
 
 }
-#endif

@@ -3,11 +3,25 @@
 
 #include <iostream>
 #include "../DotNetNative/System/String.h"
+//#include "ConsoleApi2.h"
+//#include "Wincon.h"
+//#include "Windows.h"
+//ConsoleApi2.h(via Wincon.h, include Windows.h)
+
 using namespace System;
 int main()
 {
-	String s = String(u8"你好!");
-	std::cout << "Hello World!\n" << s;
+
+	///*WriteConsoleOutputW()*/
+	//auto str = u"ssdfsadsa的方法的";
+	//wsprintfW(str.c_str(), "");//输出 abc123你我他
+	//wprintf(L"窄字节strMultiByte", str);//输出 abc123你我他
+	//wprintf_s(L"窄字节strMultiByte: %s\n", str);//输出 abc123你我他
+	//String s = String("你好!");
+	//String s = String(u8"你好!");
+	printf("ssdfsadsa的方法的%d", sizeof(Char));
+	getchar();
+	//std::cout << "Hello World!\n" << s;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

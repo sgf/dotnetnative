@@ -1,7 +1,4 @@
 ﻿#include "String.h"
-#include "Exception.h"
-#include "CharEnumerator.h"
-
 
 namespace System
 {
@@ -230,7 +227,7 @@ namespace System
 		return static_cast<const uint16_t*>(m_string.get());
 	}
 
-	Char String::operator[](const int index) const
+	uint16_t String::operator[](const int index) const
 	{
 		if (index < 0 && index >= m_length)
 		{

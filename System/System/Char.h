@@ -1,13 +1,6 @@
-﻿#ifndef _DOTNETNATIVE_SYSTEM_CHAR_H_
-#define _DOTNETNATIVE_SYSTEM_CHAR_H_
+﻿#pragma once
 
-#include "../GlobalDefs.h"
-#include "IEquatable.h"
-#include "IComparable.h"
-#include "UnicodeCategory.h"
-#include "ValueObject.h"
-#include "Object.h"
-
+#include "../pch.h"
 
 namespace System
 {
@@ -33,7 +26,6 @@ namespace System
 
 	public:
 		constexpr Char() : m_char(0) {}
-		constexpr Char(const int chr) : m_char((uint16_t)chr) {}
 		constexpr Char(const uint16_t chr) : m_char(chr) {}
 		constexpr Char(const char chr) : m_char(chr) {}
 		virtual ~Char() {}
@@ -47,12 +39,8 @@ namespace System
 		constexpr int CompareTo(const uint16_t chr) const noexcept { return m_char - chr; }
 		constexpr operator uint16_t() const noexcept { return m_char; }
 
-		//constexpr explicit Char(int _char) : m_char{ (uint16_t)_char } {};
-		//constexpr explicit Char(uint16_t _char) : m_char{ _char } {};
-
-
-		static Char Parse(const String& str);
-		static bool TryParse(const String& str, Char& outResult) noexcept;
+		static uint16_t Parse(const String& str);
+		static bool TryParse(const String& str, uint16_t& outResult) noexcept;
 		static bool IsDigit(const uint16_t c) noexcept;
 		static bool IsLetter(uint16_t c) noexcept;
 		static bool IsWhiteSpace(const uint16_t c) noexcept;
@@ -78,6 +66,3 @@ namespace System
 		// ToLowerInvariant()
 	};
 }
-
-
-#endif

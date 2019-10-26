@@ -1,9 +1,7 @@
-﻿#ifndef _DOTNETNATIVE_SYSTEM_STRING_H_
-#define _DOTNETNATIVE_SYSTEM_STRING_H_
+﻿#pragma once
 
-#include "Char.h"
-#include "Collections/IEnumerable.h"
-#include "Exception.h"
+#include "../pch.h"
+
 
 
 namespace System
@@ -37,7 +35,7 @@ namespace System
 		String& operator=(const String& copy);
 		String& operator=(String&& mov) noexcept;
 
-		Char operator[](const int index) const;
+		uint16_t operator[](const int index) const;
 		operator const uint16_t* () const noexcept;
 
 		bool Equals(const String& obj) const noexcept;
@@ -66,6 +64,3 @@ namespace System
 	bool operator==(const uint16_t* str1, const String& str2);
 	bool operator==(const String& str1, const uint16_t* str2);
 }
-
-
-#endif

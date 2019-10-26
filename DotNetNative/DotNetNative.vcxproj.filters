@@ -23,13 +23,14 @@
     <Filter Include="System\Collections">
       <UniqueIdentifier>{83e1b32c-0f68-453a-8415-b1d020f29dc1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{0ce5bb21-ee91-4755-b6cb-44031f333232}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="base">
+      <UniqueIdentifier>{4dc58fd5-3e55-4c6d-89e8-a9a99853064e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Memory.h" />
-    <ClInclude Include="MemoryUtil.h" />
-    <ClInclude Include="System\Object.h">
-      <Filter>System</Filter>
-    </ClInclude>
     <ClInclude Include="System\String.h">
       <Filter>System</Filter>
     </ClInclude>
@@ -57,7 +58,6 @@
     <ClInclude Include="System\Text\UnicodeUtility.h">
       <Filter>System\Text</Filter>
     </ClInclude>
-    <ClInclude Include="GlobalDefs.h" />
     <ClInclude Include="System\IComparable.h">
       <Filter>System</Filter>
     </ClInclude>
@@ -121,15 +121,27 @@
     <ClInclude Include="System\Int32.h">
       <Filter>System</Filter>
     </ClInclude>
-    <ClInclude Include="System\ObjectImpl.h">
-      <Filter>System</Filter>
+    <ClInclude Include="GlobalDefs.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="Memory.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryUtil.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="xxhash.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="System\ObjectImpl.h" />
+    <ClInclude Include="System\Object.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="System\ValueObject.h">
+      <Filter>Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Memory.cpp" />
-    <ClCompile Include="System\Object.cpp">
-      <Filter>System</Filter>
-    </ClCompile>
     <ClCompile Include="System\Char.cpp">
       <Filter>System</Filter>
     </ClCompile>
@@ -157,7 +169,6 @@
     <ClCompile Include="System\StringBuilder.cpp">
       <Filter>System</Filter>
     </ClCompile>
-    <ClCompile Include="MemoryUtil.cpp" />
     <ClCompile Include="System\Collections\EqualityComparer.cpp">
       <Filter>System\Collections</Filter>
     </ClCompile>
@@ -166,6 +177,19 @@
     </ClCompile>
     <ClCompile Include="System\Int32.cpp">
       <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="Memory.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryUtil.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="xxhash.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="System\Object.cpp">
+      <Filter>Core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
