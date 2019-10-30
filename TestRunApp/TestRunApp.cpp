@@ -2,7 +2,7 @@
 //
 
 #include <iostream>
-#include "../DotNetNative/System/String.h"
+#include "../System/fmt.h"
 //#include "ConsoleApi2.h"
 //#include "Wincon.h"
 //#include "Windows.h"
@@ -19,7 +19,10 @@ int main()
 	//wprintf_s(L"窄字节strMultiByte: %s\n", str);//输出 abc123你我他
 	//String s = String("你好!");
 	//String s = String(u8"你好!");
-	printf("ssdfsadsa的方法的%d", sizeof(Char));
+
+	Console::Write(u"dsfdffdf");
+
+	//printf("ssdfsadsa的方法的%d", );
 	getchar();
 	//std::cout << "Hello World!\n" << s;
 }

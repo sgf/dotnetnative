@@ -155,11 +155,6 @@
   <ItemGroup>
     <ClCompile Include="TestRunApp.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DotNetNative\DotNetNative.vcxproj">
-      <Project>{5c2cef89-e955-4a43-a100-7af4a789ad86}</Project>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

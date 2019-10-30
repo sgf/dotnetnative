@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{E274263E-0AF4-443B-BF52-E2E88C586431}</ProjectGuid>
+    <ProjectGuid>{614E509B-6026-4378-8AA4-BB4C34ADC220}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>System</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
@@ -143,6 +143,7 @@
       <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -152,49 +153,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Char.h" />
+    <ClInclude Include="core.h" />
+    <ClInclude Include="Enviroment.h" />
+    <ClInclude Include="fmt.h" />
+    <ClInclude Include="format-inl.h" />
+    <ClInclude Include="format.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="GlobalDefs.h" />
-    <ClInclude Include="Memory.h" />
-    <ClInclude Include="MemoryUtil.h" />
+    <ClInclude Include="int16.h" />
+    <ClInclude Include="int32.h" />
+    <ClInclude Include="Integer.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="System\Array.h" />
-    <ClInclude Include="System\BitConverter.h" />
-    <ClInclude Include="System\Buffers\Binary\BinaryPrimitives.h" />
-    <ClInclude Include="System\Byte.h" />
-    <ClInclude Include="System\Char.h" />
-    <ClInclude Include="System\CharEnumerator.h" />
-    <ClInclude Include="System\CharUnicodeInfo.h" />
-    <ClInclude Include="System\Collections\Dictionary.h" />
-    <ClInclude Include="System\Collections\EqualityComparer.h" />
-    <ClInclude Include="System\Collections\GenericEnumerator.h" />
-    <ClInclude Include="System\Collections\HashHelpers.h" />
-    <ClInclude Include="System\Collections\ICollection.h" />
-    <ClInclude Include="System\Collections\IDictionary.h" />
-    <ClInclude Include="System\Collections\IEnumerable.h" />
-    <ClInclude Include="System\Collections\IEnumerator.h" />
-    <ClInclude Include="System\Collections\IEqualityComparer.h" />
-    <ClInclude Include="System\Collections\IReadOnlyCollection.h" />
-    <ClInclude Include="System\Collections\IReadOnlyDictionary.h" />
-    <ClInclude Include="System\Collections\IReadOnlyList.h" />
-    <ClInclude Include="System\Collections\KeyValuePair.h" />
-    <ClInclude Include="System\Environment.h" />
-    <ClInclude Include="System\Exception.h" />
-    <ClInclude Include="System\Globalization\NumberStyles.h" />
-    <ClInclude Include="System\IComparable.h" />
-    <ClInclude Include="System\IEquatable.h" />
-    <ClInclude Include="System\Int32.h" />
-    <ClInclude Include="System\Object.h" />
-    <ClInclude Include="System\ObjectImpl.h" />
-    <ClInclude Include="System\String.h" />
-    <ClInclude Include="System\StringBuilder.h" />
-    <ClInclude Include="System\Text\UnicodeUtility.h" />
-    <ClInclude Include="System\UnicodeCategory.h" />
-    <ClInclude Include="System\ValueObject.h" />
-    <ClInclude Include="xxhash.h" />
+    <ClInclude Include="String.h" />
+    <ClInclude Include="uint16.h" />
+    <ClInclude Include="ValueObject.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Memory.cpp" />
-    <ClCompile Include="MemoryUtil.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -202,20 +176,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="System.cpp" />
-    <ClCompile Include="System\Byte.cpp" />
-    <ClCompile Include="System\Char.cpp" />
-    <ClCompile Include="System\CharEnumerator.cpp" />
-    <ClCompile Include="System\CharUnicodeInfo.cpp" />
-    <ClCompile Include="System\CharUnicodeInfoData.cpp" />
-    <ClCompile Include="System\Collections\EqualityComparer.cpp" />
-    <ClCompile Include="System\Collections\HashHelpers.cpp" />
-    <ClCompile Include="System\Environment.cpp" />
-    <ClCompile Include="System\Exception.cpp" />
-    <ClCompile Include="System\Int32.cpp" />
-    <ClCompile Include="System\Object.cpp" />
-    <ClCompile Include="System\String.cpp" />
-    <ClCompile Include="System\StringBuilder.cpp" />
-    <ClCompile Include="xxhash.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
