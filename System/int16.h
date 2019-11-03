@@ -3,6 +3,10 @@
 
 
 namespace System {
+
+
+	class String;
+
 	struct int16
 	{
 		int16_t m_val;
@@ -19,13 +23,18 @@ namespace System {
 		int16 operator/(int16 s) { return m_val / s.m_val; }
 		constexpr operator int16_t() const noexcept { return m_val; }
 
-		/*	friend String operator+(String s, int16 c) {
-				return a + to_string(c.m_value);
-			}
+		String& ToString() {
 
-		friend string operator+(int16 c, string a) {
+		}
+
+
+		friend String& operator+(String& s, int16 c) {
+			return a + to_string(c.m_value);
+		}
+
+		friend string& operator+(int16 c, string& a) {
 			return to_string(c.m_value) + a;
-		}*/
+		}
 
 	private:
 

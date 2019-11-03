@@ -2,20 +2,19 @@
 #include "pch.h"
 #include "Char.h"
 #include "int32.h"
+//#include "GC.h"
 
 
 namespace System {
 
 	struct String {
-
-
 	private:
-
 		Char* m_chars;
 
 	public:
+		String() {}
 		String(const u16string&& s) {
-
+			//auto c = gc::make(Char{});
 		}
 
 		String(String& s) {
@@ -34,15 +33,18 @@ namespace System {
 
 		}
 
-		String&& operator+(String& s) { return u""; }
 
+		String operator+(const String& value) const { return u""; }
 
-		constexpr u16string& u16string() const noexcept {
-			constexpr std::u16string u16s = (char16_t*)m_chars;
-			return u16s;
+		const u16string u16string() const noexcept {
+			return std::u16string((char16_t*)m_chars);
 		}
 
-		//code units :
+		const std::u16string utf16() const noexcept {
+			return std::u16string((char16_t*)m_chars);
+		}
+
+
 
 
 	};

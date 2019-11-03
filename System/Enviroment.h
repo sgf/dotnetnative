@@ -9,7 +9,7 @@ namespace System {
 	class Environment
 	{
 	public:
-		static const String NewLine;
+		static const String& NewLine;
 		static constexpr bool Is64BitProcess = sizeof(void*) == 8;
 		static constexpr bool UserInteractive = true;
 		Environment(const Environment& copy) = delete;
@@ -20,7 +20,7 @@ namespace System {
 
 	};
 
-	const String Environment::NewLine = u"\r\n";
+	const String& Environment::NewLine = u"\r\n";
 
 
 

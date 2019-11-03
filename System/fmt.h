@@ -9,25 +9,25 @@ namespace System {
 
 	class Console {
 
-		template<typename... Args>
-		static inline void Write(String& format, Args&& ...args) {
-			fmt::print(format, args);
-		}
+		//template<typename... Args>
+		//static inline void Write(String& format, Args&& ...args) {
+		//	fmt::print(format, args);
+		//}
 
-		static inline void Write(String& str) {
-			fmt::print("Error: ");
-		}
+		//static inline void Write(String& str) {
+		//	fmt::print("Error: ");
+		//}
 
-		template<typename... Args>
-		static inline void WriteLine(String& format, Args&& ...args) {
-			fmt::print(format + Enviroment::NewLine, args);
-		}
+		//template<typename... Args>
+		//static inline void WriteLine(String& format, Args&& ...args) {
+		//	fmt::print(format + Enviroment::NewLine, args);
+		//}
 
-
-
-		static inline void WriteLine(String& str) {
-			auto ss = (str + Environment::NewLine);
-			fmt::print("asssss");
+		inline static void WriteLine(const String& str) {
+			//const auto& nl = Environment::NewLine;
+			//auto ss = (str + nl);//care
+			//String ss = u"123{0}";
+			return;
 		}
 	};
 

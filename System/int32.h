@@ -1,10 +1,9 @@
 #pragma once
 #include "pch.h"
-#include "fmt.h"
-#include "String.h"
 
 
 namespace System {
+
 
 	class int32
 	{
@@ -13,7 +12,6 @@ namespace System {
 	public:
 		int32(int32_t src) :m_val(src) {}
 		~int32();
-
 
 		int32 operator+(int32 s) { return m_val + s.m_val; }
 		int32 operator-(int32 s) { return m_val - s.m_val; }

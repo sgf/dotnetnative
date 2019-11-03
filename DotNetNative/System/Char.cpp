@@ -168,7 +168,7 @@ namespace System
 	{
 		if (str.Length() != 1)
 		{
-			outResult = 0;
+			outResult = &Char(0);
 
 			return false;
 		}

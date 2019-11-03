@@ -19,6 +19,9 @@
     <Filter Include="Header Files\core\3rd">
       <UniqueIdentifier>{75c1c330-84a4-4fcb-970f-f68d4850f65c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\text">
+      <UniqueIdentifier>{311198b8-3cc4-43b6-94d3-8b3c365d2ecc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -27,13 +30,7 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="String.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Char.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="int16.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Integer.h">
@@ -45,14 +42,26 @@
     <ClInclude Include="ValueObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Enviroment.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="CodePoint.h">
+      <Filter>Header Files\text</Filter>
+    </ClInclude>
+    <ClInclude Include="int16.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
     <ClInclude Include="int32.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="uint6.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="String.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="fmt.h">
-      <Filter>Header Files\core</Filter>
-    </ClInclude>
-    <ClInclude Include="core.h">
-      <Filter>Header Files\core\3rd</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="format.h">
       <Filter>Header Files\core\3rd</Filter>
@@ -60,8 +69,8 @@
     <ClInclude Include="format-inl.h">
       <Filter>Header Files\core\3rd</Filter>
     </ClInclude>
-    <ClInclude Include="Enviroment.h">
-      <Filter>Header Files\core</Filter>
+    <ClInclude Include="core.h">
+      <Filter>Header Files\core\3rd</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

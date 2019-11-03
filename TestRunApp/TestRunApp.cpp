@@ -2,7 +2,7 @@
 //
 
 #include <iostream>
-#include "../System/fmt.h"
+#include "../System/String.h"
 //#include "ConsoleApi2.h"
 //#include "Wincon.h"
 //#include "Windows.h"
@@ -20,8 +20,8 @@ int main()
 	//String s = String("你好!");
 	//String s = String(u8"你好!");
 
-	Console::Write(u"dsfdffdf");
-
+	//Console::Write(u"dsfdffdf");
+	String s;
 	//printf("ssdfsadsa的方法的%d", );
 	getchar();
 	//std::cout << "Hello World!\n" << s;

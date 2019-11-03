@@ -1,6 +1,8 @@
 #pragma once
 #include "pch.h"
 
+
+
 namespace System {
 
 	/// <summary>
@@ -11,15 +13,12 @@ namespace System {
 	private:
 		uint16_t m_char;
 	public:
+		Char() :m_char(0) {}
 		Char(uint16_t _char) :m_char(_char) {
 
 		}
 
-
-
-
 	};
-
 
 
 	//surrogate pairs
@@ -42,13 +41,18 @@ namespace System {
 	{
 	}
 
+	//À©Õ¹Æ½Ãæ
+	class SupplementaryPlane {
+
+
+	};
+
+
 
 	class CodePoint {
 	private:
 		Char Unit1;
 		Char Unit2;
-
-
 	};
 
 }
