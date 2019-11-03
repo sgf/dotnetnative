@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "pch.h"
 #include "String.h"
 
@@ -19,7 +19,7 @@ namespace System {
 
 
 
-		internal static unsafe string UInt32ToDecStr(uint value, int digits)
+		internal static unsafe string UInt32ToDecStr(uint value, int32 digits)
 		{
 			int bufferLength = Math.Max(digits, FormattingHelpers.CountDigits(value));
 
