@@ -5,72 +5,88 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\core">
+    <Filter Include="core">
       <UniqueIdentifier>{62f30954-88de-4e5b-afad-0b3163e826f4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\core\3rd">
+    <Filter Include="core\3rd">
       <UniqueIdentifier>{75c1c330-84a4-4fcb-970f-f68d4850f65c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\text">
+    <Filter Include="core\text">
+      <UniqueIdentifier>{04810911-322c-49f1-b78b-0e719e03eac1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="text">
       <UniqueIdentifier>{311198b8-3cc4-43b6-94d3-8b3c365d2ecc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NewFilter1">
+      <UniqueIdentifier>{471ab940-71e3-4a5f-8290-cff256b5ac88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\base">
+      <UniqueIdentifier>{da7fbd68-0481-48e1-b5eb-387bba46cd4e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="pch.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Char.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Integer.h">
-      <Filter>Header Files\core</Filter>
-    </ClInclude>
-    <ClInclude Include="uint16.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ValueObject.h">
-      <Filter>Header Files</Filter>
+      <Filter>core</Filter>
     </ClInclude>
     <ClInclude Include="Enviroment.h">
-      <Filter>Header Files\core</Filter>
+      <Filter>core</Filter>
     </ClInclude>
     <ClInclude Include="CodePoint.h">
-      <Filter>Header Files\text</Filter>
+      <Filter>text</Filter>
     </ClInclude>
     <ClInclude Include="int16.h">
-      <Filter>Header Files\core</Filter>
+      <Filter>core</Filter>
     </ClInclude>
     <ClInclude Include="int32.h">
-      <Filter>Header Files\core</Filter>
+      <Filter>core</Filter>
     </ClInclude>
     <ClInclude Include="uint6.h">
-      <Filter>Header Files\core</Filter>
-    </ClInclude>
-    <ClInclude Include="String.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="fmt.h">
-      <Filter>Header Files</Filter>
+      <Filter>core</Filter>
     </ClInclude>
     <ClInclude Include="format.h">
-      <Filter>Header Files\core\3rd</Filter>
+      <Filter>core\3rd</Filter>
     </ClInclude>
     <ClInclude Include="format-inl.h">
-      <Filter>Header Files\core\3rd</Filter>
+      <Filter>core\3rd</Filter>
     </ClInclude>
     <ClInclude Include="core.h">
-      <Filter>Header Files\core\3rd</Filter>
+      <Filter>core\3rd</Filter>
+    </ClInclude>
+    <ClInclude Include="Encoding.h">
+      <Filter>core\text</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Char.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="fmt.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="String.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="uint16.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="ValueObject.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="FormattingHelpers.h">
+      <Filter>core\text</Filter>
+    </ClInclude>
+    <ClInclude Include="Debug.h">
+      <Filter>core\base</Filter>
+    </ClInclude>
+    <ClInclude Include="STD.h">
+      <Filter>core\base</Filter>
+    </ClInclude>
+    <ClInclude Include="Self.h">
+      <Filter>core\base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -79,6 +95,9 @@
     </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="String.cpp">
+      <Filter>core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

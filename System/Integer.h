@@ -17,9 +17,7 @@ namespace System {
 		}
 
 
-
-
-		internal static unsafe string UInt32ToDecStr(uint value, int32 digits)
+		internal static unsafe string UInt32ToDecStr(uint value, int32_t digits)
 		{
 			int bufferLength = Math.Max(digits, FormattingHelpers.CountDigits(value));
 

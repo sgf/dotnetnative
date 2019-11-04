@@ -9,9 +9,11 @@ int main()
 {
 	int32 i32;
 	i32.ToString();
+	auto ccc = "Hello World!\n";
 
-
-	std::cout << "Hello World!\n";
+	std::cout << strlen(ccc);;
+	std::cout << ccc;
+	getchar();
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
