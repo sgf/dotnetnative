@@ -15,11 +15,12 @@ namespace System {
 		//std::unique_ptr<Impl> pImpl_;
 
 	public:
+
 		//向内转换
-		i32(int32_t i) :m(i) {}
-		explicit  i32(uint32_t i) :m((int32_t)i) {}
-		explicit  i32(int64_t i) :m((int32_t)i) {}
-		explicit  i32(uint64_t i) :m((int32_t)i) {}
+		i32(int32_t i);
+		explicit  i32(uint32_t i);
+		explicit  i32(int64_t i);
+		explicit  i32(uint64_t i);
 		i32(const i32& str);//拷贝构造函数
 		i32 operator =(const i32 str);//赋值函数
 		//向外转换

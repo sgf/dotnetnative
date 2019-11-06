@@ -10,6 +10,11 @@ namespace System {
 	{
 	}
 
+	i32::i32(int32_t i) :m(i), pimpl(new i32Impl()) {}
+	i32::i32(uint32_t i) : m((int32_t)i), pimpl(new i32Impl()) {}
+	i32::i32(int64_t i) : m((int32_t)i), pimpl(new i32Impl()) {}
+	i32::i32(uint64_t i) : m((int32_t)i), pimpl(new i32Impl()) {}
+
 	i32 i32::operator=(const i32 org)
 	{
 		return this->m;
