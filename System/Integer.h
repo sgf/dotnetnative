@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "pch.h"
 #include "String.h"
+#include "FormattingHelpers.h"
 
 namespace System {
 
@@ -17,9 +18,9 @@ namespace System {
 		}
 
 
-		internal static unsafe string UInt32ToDecStr(uint value, int32_t digits)
+		static const String& UInt32ToDecStr(int32_t value, int32_t digits)
 		{
-			int bufferLength = Math.Max(digits, FormattingHelpers.CountDigits(value));
+			int bufferLength = Math.Max(digits, FormattingHelpers::CountDigits(value));
 
 			// For single-digit values that are very common, especially 0 and 1, just return cached strings.
 			if (bufferLength == 1)

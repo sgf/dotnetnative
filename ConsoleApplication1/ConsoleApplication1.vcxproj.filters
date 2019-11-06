@@ -21,6 +21,9 @@
     <ClCompile Include="Int32.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="String.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Int32.h">

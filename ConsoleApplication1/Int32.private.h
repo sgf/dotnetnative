@@ -2,18 +2,18 @@
 #include "String.h"
 
 namespace System {
-	class int32::int32Impl {
+	class i32::i32Impl {
 
 	public:
-		int32Impl() {
+		i32Impl() {
 
 		}
 		static String& ToString() {
-			String str;
+			String str = u"111";
 			return str;
 		}
 
-		~int32Impl() {
+		~i32Impl() {
 
 		}
 

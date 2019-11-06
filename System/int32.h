@@ -5,18 +5,20 @@
 namespace System {
 
 
-	class int32
+	class i32
 	{
 	private:
 		int32_t m_val;
 	public:
-		int32(int32_t src) :m_val(src) {}
-		~int32();
+		i32(int32_t src) :m_val(src) {}
+		~i32();
 
-		int32 operator+(int32 s) { return m_val + s.m_val; }
-		int32 operator-(int32 s) { return m_val - s.m_val; }
-		int32 operator*(int32 s) { return m_val * s.m_val; }
-		int32 operator/(int32 s) { return m_val / s.m_val; }
+		i32 operator+(i32 s) { return m_val + s.m_val; }
+		i32 operator-(i32 s) { return m_val - s.m_val; }
+		i32 operator*(i32 s) { return m_val * s.m_val; }
+		i32 operator/(i32 s) { return m_val / s.m_val; }
+		i32 operator>(i32 s) { return m_val > s.m_val; }
+		i32 operator<(i32 s) { return m_val < s.m_val; }
 		constexpr operator int32_t() const noexcept { return m_val; }
 
 		/*String&& ToString() {
@@ -26,7 +28,7 @@ namespace System {
 
 	};
 
-	int32::~int32()
+	i32::~i32()
 	{
 	}
 

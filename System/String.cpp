@@ -6,11 +6,9 @@ using namespace System::Text;
 
 
 String& String::From_basic_chars(char* chars, Encoding encoding) {
-
 	if (encoding == Encoding::UTF16) {
 
 	}
-
 }
 
 

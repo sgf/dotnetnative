@@ -167,6 +167,8 @@
     <ClInclude Include="int16.h" />
     <ClInclude Include="int32.h" />
     <ClInclude Include="Integer.h" />
+    <ClInclude Include="Math.h" />
+    <ClInclude Include="OverflowException.h" />
     <ClInclude Include="STD.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Self.h" />

@@ -88,6 +88,12 @@
     <ClInclude Include="Self.h">
       <Filter>core\base</Filter>
     </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="OverflowException.h">
+      <Filter>core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="System.cpp">

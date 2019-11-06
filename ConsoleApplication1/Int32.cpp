@@ -3,15 +3,29 @@
 
 using namespace System;
 
-
-int32::int32() :pimpl(std::unique_ptr<int32Impl>{}) {
-}
+namespace System {
 
 
-int32::~int32() {
+	i32::i32(const i32& str)
+	{
+	}
 
-}
+	i32 i32::operator=(const i32 org)
+	{
+		return this->m;
+	}
 
-String& int32::ToString() {
-	return pimpl->ToString();
+	i32::i32() :pimpl(new i32Impl()) {
+	}
+
+
+	i32::~i32() {
+
+	}
+
+	String& i32::ToString() {
+		return pimpl->ToString();
+	}
+
+
 }

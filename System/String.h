@@ -45,7 +45,7 @@ namespace System {
 			//TODO:н╢й╣ож
 		}
 
-		int32 Length() {
+		i32 Length() {
 
 		}
 
