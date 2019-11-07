@@ -36,8 +36,10 @@ namespace System {
 		inline i32 operator>>(i32 bit)const noexcept { return  m >> bit; }
 		inline i32 operator<<(i32 bit)const noexcept { return  m << bit; }
 		inline constexpr operator int32_t() const noexcept { return m; }
-		inline constexpr explicit operator uint32_t() const noexcept { return m; }
-		inline constexpr explicit operator uint64_t()  const noexcept { return m; }
+		inline constexpr explicit operator int16_t() const noexcept { return (int16_t)m; }
+		inline constexpr explicit operator uint16_t() const noexcept { return (uint16_t)m; }
+		inline constexpr explicit operator uint32_t() const noexcept { return (uint32_t)m; }
+		inline constexpr explicit operator uint64_t()  const noexcept { return (uint64_t)m; }
 
 		i32();
 		String& ToString();

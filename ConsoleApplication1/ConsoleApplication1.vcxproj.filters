@@ -35,5 +35,11 @@
     <ClInclude Include="Int32.private.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Integer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
