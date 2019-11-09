@@ -28,7 +28,7 @@ namespace System {
 
 	}
 
-	String& i32::ToString() {
+	String&& i32::ToString() {
 		return pimpl->ToString();
 	}
 

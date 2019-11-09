@@ -42,7 +42,7 @@ namespace System {
 		inline constexpr explicit operator uint64_t()  const noexcept { return (uint64_t)m; }
 
 		i32();
-		String& ToString();
+		String&& ToString();
 		~i32();
 
 	};
