@@ -4,6 +4,7 @@
 #include <iostream>
 #include "String.h"
 #include "Int32.h"
+#include "Char.h"
 using namespace System;
 
 template<size_t N>
@@ -11,15 +12,25 @@ constexpr uint32_t length(char16_t const (&aaaa)[N]) {
 	return N - 1;
 }
 
+
+
+template<size_t N>
+String operator +(char16_t const (&left)[N], Char c) {
+	auto aa = new String(u"");
+	return aa;
+}
+
 int main()
 {
+	Char c = u'C';
+
 	String str = u"Hello World!\n";
 	int32_t i1 = str.Length();
 	int64_t i2 = str.Length();
 	std::cout << i1 << i2;
 	std::cout << str.Length();
-
-	length(u"Hello World!\n");
+	String SS = u"Hello World!\n" + c;
+	//length();
 	//String ccc = u"Hello World!\n";
 
 	//std::cout << strlen(ccc);;

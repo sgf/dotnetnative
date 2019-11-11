@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include "Int32.h"
 #include "String.h"
 
 namespace System {
@@ -8,7 +9,7 @@ namespace System {
 		i32Impl() {
 
 		}
-		static String ToString() {
+		inline static String ToString(i32 i) {
 			auto str = u"123";
 			return str;
 			//  shared_ptr<String> return make_shared<String>(new String(u"111"));

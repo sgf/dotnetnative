@@ -159,6 +159,7 @@
     <ClCompile Include="String.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Char.h" />
     <ClInclude Include="Int32.h" />
     <ClInclude Include="Int32.private.h" />
     <ClInclude Include="Integer.h" />
