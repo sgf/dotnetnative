@@ -12,8 +12,6 @@ constexpr uint32_t length(char16_t const (&aaaa)[N]) {
 	return N - 1;
 }
 
-
-
 template<size_t N>
 String* operator +(char16_t const (&left)[N], Char c) {
 	return new String(u"");
@@ -22,7 +20,6 @@ String* operator +(char16_t const (&left)[N], Char c) {
 int main()
 {
 	Char c = u'C';
-
 	String str = u"Hello World!\n";
 	int32_t i1 = str.Length();
 	int64_t i2 = str.Length();

@@ -160,11 +160,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Char.h" />
+    <ClInclude Include="Encoding.h" />
     <ClInclude Include="Int32.h" />
     <ClInclude Include="Int32.private.h" />
     <ClInclude Include="Integer.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="String.h" />
+    <ClInclude Include="UTF8Encoding.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="头文件\Text">
+      <UniqueIdentifier>{4a009891-c38a-4d92-9623-02969253ade8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleApplication1.cpp">
@@ -43,6 +46,12 @@
     </ClInclude>
     <ClInclude Include="Char.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="UTF8Encoding.h">
+      <Filter>头文件\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="Encoding.h">
+      <Filter>头文件\Text</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
