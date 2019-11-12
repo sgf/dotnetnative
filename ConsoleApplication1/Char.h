@@ -18,10 +18,10 @@ namespace System {
 		Char() :m(0) {}
 		Char(char16_t _char) :m(_char) {}
 		Char(uint16_t c) :m(c) {}
-		explicit  Char(int32_t i) :m(i) {}
+		explicit  Char(int32_t i) :m((int32_t)i) {}
 		explicit  Char(uint32_t i) :m(i) {}
-		explicit  Char(int64_t i) :m(i) {}
-		explicit  Char(uint64_t i) :m(i) {}
+		explicit  Char(int64_t i) :m((uint16_t)i) {}
+		explicit  Char(uint64_t i) :m((uint16_t)i) {}
 
 
 

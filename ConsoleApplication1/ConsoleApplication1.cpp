@@ -15,9 +15,8 @@ constexpr uint32_t length(char16_t const (&aaaa)[N]) {
 
 
 template<size_t N>
-String operator +(char16_t const (&left)[N], Char c) {
-	auto aa = new String(u"");
-	return aa;
+String* operator +(char16_t const (&left)[N], Char c) {
+	return new String(u"");
 }
 
 int main()
@@ -29,7 +28,7 @@ int main()
 	int64_t i2 = str.Length();
 	std::cout << i1 << i2;
 	std::cout << str.Length();
-	String SS = u"Hello World!\n" + c;
+	auto SS = u"Hello World!\n" + c;
 	//length();
 	//String ccc = u"Hello World!\n";
 
