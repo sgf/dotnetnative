@@ -154,18 +154,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Char.cpp" />
     <ClCompile Include="ConsoleApplication1.cpp" />
     <ClCompile Include="Int32.cpp" />
     <ClCompile Include="String.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Char.h" />
+    <ClInclude Include="defines.h" />
     <ClInclude Include="Encoding.h" />
+    <ClInclude Include="gc.h" />
     <ClInclude Include="Int32.h" />
     <ClInclude Include="Int32.private.h" />
     <ClInclude Include="Integer.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="String.h" />
+    <ClInclude Include="UnicodeCategory.h" />
     <ClInclude Include="UTF8Encoding.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -17,6 +17,8 @@ namespace System {
 		const inline static i32 mediumMaxSize = 255;
 		const inline static i32 largeMaxSize = 255;
 
+
+
 		i32 Lenght() {
 
 		}

@@ -13,7 +13,10 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="头文件\Text">
+    <Filter Include="头文件\core">
+      <UniqueIdentifier>{54cb3fd5-1ab7-4e59-92ea-eb0fe0c18e04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\text">
       <UniqueIdentifier>{4a009891-c38a-4d92-9623-02969253ade8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -25,6 +28,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="String.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Char.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -48,10 +54,19 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="UTF8Encoding.h">
-      <Filter>头文件\Text</Filter>
+      <Filter>头文件\text</Filter>
     </ClInclude>
     <ClInclude Include="Encoding.h">
-      <Filter>头文件\Text</Filter>
+      <Filter>头文件\text</Filter>
+    </ClInclude>
+    <ClInclude Include="defines.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="UnicodeCategory.h">
+      <Filter>头文件\text</Filter>
+    </ClInclude>
+    <ClInclude Include="gc.h">
+      <Filter>头文件\core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
