@@ -19,13 +19,22 @@ String* operator +(char16_t const (&left)[N], Char c) {
 
 int main()
 {
-	Char c = u'C';
+	/*auto aa = {
+		0x0E, 0x0E
+	};*/
+
+
+
+	const Array<Byte> Latin1CharInfo = {
+		0x0E, 0x0E
+	};
+
 	String str = u"Hello World!\n";
 	int32_t i1 = str.Length();
 	int64_t i2 = str.Length();
 	std::cout << i1 << i2;
 	std::cout << str.Length();
-	auto SS = u"Hello World!\n" + c;
+	auto SS = u"Hello World!\n";
 	//length();
 	//String ccc = u"Hello World!\n";
 

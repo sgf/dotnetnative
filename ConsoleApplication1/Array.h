@@ -1,23 +1,36 @@
-#pragma once
-
-template<class T>
-class  Array
-{
+ï»¿#pragma once
+#include <vector>
 
 
-public:
-	Array(T const (&inner)[N]) {
-		auto str = "helloÄãºÃ";
-	}
-	~Array();
 
-private:
+namespace System {
 
-};
+	template<class T>
+	class  Array
+	{
+		//T const (&m);
+		std::vector <T> m;
+
+	public:
+		template<size_t N>
+		Array(T const (&& inner)[N]) :m(inner) {
+		}
+		Array(initializer_list<T> list) :m(list) {
+
+		}
 
 
-template<class T>
-Array<T>::~Array()
-{
+		~Array() {
+
+		}
+
+
+		T operator[](const i32 idx)const noexcept { return  m[idx]; }
+
+
+		//private:
+
+	};
+
 
 }

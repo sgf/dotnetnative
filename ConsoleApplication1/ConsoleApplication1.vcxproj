@@ -173,6 +173,9 @@
     <ClInclude Include="UnicodeCategory.h" />
     <ClInclude Include="UTF8Encoding.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Char.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
