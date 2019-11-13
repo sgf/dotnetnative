@@ -1,7 +1,5 @@
 #pragma once
 
-
-
 namespace System::Text {
 
 	enum class Encoding {

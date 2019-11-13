@@ -6,25 +6,17 @@
 ///
 enum class UnicodeCategory :Byte
 {
-	/// <summary>Uppercase letter. Signified by the Unicode designation "Lu" (letter, uppercase). The value is 0.</summar>
+	//Uppercase letter. Signified by the Unicode designation "Lu" (letter, uppercase). The value is 0.
 	UppercaseLetter = 0,
-
-	/// <summary>Lowercase letter. Signified by the Unicode designation "Ll" (letter, lowercase). The value is 1.</summary>
+	//Lowercase letter. Signified by the Unicode designation "Ll" (letter, lowercase). The value is 1.
 	LowercaseLetter = 1,
-
-	/// <summary>Titlecase letter. Signified by the Unicode designation "Lt" (letter, titlecase). The value is 2.</summary>
+	//Titlecase letter. Signified by the Unicode designation "Lt" (letter, titlecase). The value is 2.
 	TitlecaseLetter = 2,
-
-	/// <summary>
-	/// Modifier letter character, which is free-standing spacing character that indicates modifications of a preceding letter. Signified by the Unicode designation "Lm"
-	/// (letter, modifier). The value is 3.
-	/// </summary>
+	//Modifier letter character, which is free-standing spacing character that indicates modifications of a preceding letter. Signified by the Unicode designation "Lm" (letter, modifier). The value is 3.
 	ModifierLetter = 3,
 
 	/// <summary>
-	/// Letter that is not an uppercase letter, a lowercase letter, a titlecase letter,
-	/// or a modifier letter. Signified by the Unicode designation "Lo" (letter, other).
-	/// The value is 4.
+	/// Letter that is not an uppercase letter, a lowercase letter, a titlecase letter, or a modifier letter. Signified by the Unicode designation "Lo" (letter, other). The value is 4.
 	/// </summary>
 	OtherLetter = 4,
 

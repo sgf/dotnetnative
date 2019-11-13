@@ -19,6 +19,9 @@
     <Filter Include="头文件\text">
       <UniqueIdentifier>{4a009891-c38a-4d92-9623-02969253ade8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\collections">
+      <UniqueIdentifier>{dc2b5cc5-6e6a-4d6d-a955-84d1423fb639}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleApplication1.cpp">
@@ -67,6 +70,9 @@
     </ClInclude>
     <ClInclude Include="gc.h">
       <Filter>头文件\core</Filter>
+    </ClInclude>
+    <ClInclude Include="Array.h">
+      <Filter>头文件\collections</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
