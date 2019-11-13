@@ -1,14 +1,19 @@
 ﻿#pragma once
 #include <vector>
-
-
+#include "../3rd/gsl/multi_span"
+using namespace gsl;
 
 namespace System {
+
+
 
 	template<class T>
 	class  Array
 	{
 		//T const (&m);
+
+		multi_span <T> spans;
+
 		std::vector <T> m;
 
 	public:
@@ -25,7 +30,7 @@ namespace System {
 		}
 
 
-		T operator[](const i32 idx)const noexcept { return  m[idx]; }
+		T& operator[](const i32 idx)const noexcept { return  m[idx]; }
 
 
 		//private:
