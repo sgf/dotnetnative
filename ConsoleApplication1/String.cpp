@@ -10,12 +10,13 @@ using namespace std;
 
 String& String::operator =(const String& str)//¸³ÖµÖØÔØ
 {
-	if (this != &str)
-		//this->m.copy(String(str).m,
+	if (this != &str) return *this;
+	//this->m.copy(String(str).m,
 
 
 
-		return *this;
+
+	return *this;
 };
 
 //String::String(const char16_t* str) {

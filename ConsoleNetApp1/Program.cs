@@ -1,19 +1,31 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Dynamic;
+using System.Linq;
+using ClassLibrary1;
 
 namespace ConsoleNetApp1 {
     class Program {
+
         static void Main(string[] args) {
 
-            Grid grid = new Grid();
-            int i = 0;
-            foreach (var b in grid.Buttons) {
-                i++;
-                b.Clicked = () => { Console.WriteLine(i.ToString()); };
 
+            foreach (var l in new DYTest().GetRlt()) {
+                Console.WriteLine(l.id);
+                Console.WriteLine(l.text);
             }
 
+            //Grid grid = new Grid();
+            //int i = 0;
+            //foreach (var b in grid.Buttons) {
+            //    i++;
+            //    b.Clicked = () => { Console.WriteLine(i.ToString()); };
 
-            grid.Buttons[3].Clicked();
+            //}
+
+
+            //grid.Buttons[3].Clicked();
 
             //var s1 = "string 1";
             //var s2 = string.Empty;

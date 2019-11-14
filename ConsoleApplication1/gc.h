@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "../3rd/gcpp/deferred_allocator.h"
+#include <gcpp/deferred_allocator.h>
 
 namespace System {
 

@@ -92,6 +92,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rd\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -165,13 +166,17 @@
     <ClInclude Include="defines.h" />
     <ClInclude Include="Encoding.h" />
     <ClInclude Include="gc.h" />
+    <ClInclude Include="IEnumerator.h" />
     <ClInclude Include="Int32.h" />
     <ClInclude Include="Int32.private.h" />
     <ClInclude Include="Integer.h" />
+    <ClInclude Include="Interface.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="String.h" />
+    <ClInclude Include="StringBuilder.h" />
     <ClInclude Include="UnicodeCategory.h" />
     <ClInclude Include="UTF8Encoding.h" />
+    <ClInclude Include="_.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Char.txt" />

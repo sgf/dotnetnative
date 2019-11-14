@@ -74,6 +74,18 @@
     <ClInclude Include="Array.h">
       <Filter>头文件\collections</Filter>
     </ClInclude>
+    <ClInclude Include="_.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StringBuilder.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="IEnumerator.h">
+      <Filter>头文件\collections</Filter>
+    </ClInclude>
+    <ClInclude Include="Interface.h">
+      <Filter>头文件\core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Char.txt">

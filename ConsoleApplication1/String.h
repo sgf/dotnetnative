@@ -1,7 +1,9 @@
 ﻿#pragma once
 #include "Int32.h"
 #include <string>
+#include <gsl/string_span>
 using namespace std;
+using namespace gsl;
 
 namespace System {
 
@@ -34,7 +36,7 @@ namespace System {
 
 	class String {
 	private:
-		const u16string_view& m;
+		cu16string_span<> m;
 		const i32 length;
 
 	public:
@@ -42,16 +44,26 @@ namespace System {
 		String(const char16_t(&str)[N]) :length(N - 1), m(str) { }//参数构造函数
 		template<size_t N>
 		String(const char16_t(&& str)[N]) : length(N - 1), m(str) { }//参数构造函数 接收右值
-		String(const char16_t* str) :m(str) { }//参数构造函数 
+		String(const char16_t* str) :m(ensure_z(str)) {} //参数构造函数 
 		String(const u16string&& str) :m(str) {}//Move构造函数 接受右值
 		String(const String& str) :m(str.m) {}//拷贝构造函数
 		String& operator =(const String& str);//赋值重载
 		String& operator =(String&& str);//右值赋值重载
 
-
+		//length_bytes/length/size/size_bytes
 		i32 Length() {
 			return (i32)m.length();
 		}
+
+		/// <summary>
+		/// char16_t/char32_t/wchar_t/unsigned short/char/char8_t
+		/// </summary>
+		template<class char_T>
+		static const i32 Length(const char_T* str) {
+			return char_traits<char_T>::length(str);
+		}
+
+
 
 	};
 }

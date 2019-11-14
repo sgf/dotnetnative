@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include <vector>
-#include "../3rd/gsl/multi_span"
+#include <gsl/span>
 using namespace gsl;
 
 namespace System {
@@ -11,9 +11,7 @@ namespace System {
 	class  Array
 	{
 		//T const (&m);
-
-		multi_span <T> spans;
-
+		//span<T> spans;
 		std::vector <T> m;
 
 	public:
@@ -24,11 +22,9 @@ namespace System {
 
 		}
 
-
 		~Array() {
 
 		}
-
 
 		T& operator[](const i32 idx)const noexcept { return  m[idx]; }
 
