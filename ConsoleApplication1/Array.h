@@ -6,7 +6,6 @@ using namespace gsl;
 namespace System {
 
 
-
 	template<class T>
 	class  Array
 	{
