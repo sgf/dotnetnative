@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "_.h"
 #include <windows.h>
 #include "Int32.h"
@@ -7,21 +7,28 @@ namespace System
 {
 	class String;
 
+
 	enum class ConsoleColor
 	{
 		Black = 0,
 		DarkBlue = 1,
 		DarkGreen = 2,
+		//æš—é’è‰²
 		DarkCyan = 3,
 		DarkRed = 4,
+		//æš—æ´‹çº¢è‰²
 		DarkMagenta = 5,
 		DarkYellow = 6,
+		//ç°è‰²
 		Gray = 7,
+		//æš—ç°è‰²
 		DarkGray = 8,
 		Blue = 9,
 		Green = 10,
+		//é’è‰²
 		Cyan = 11,
 		Red = 12,
+		//æ´‹çº¢
 		Magenta = 13,
 		Yellow = 14,
 		White = 15
@@ -110,7 +117,7 @@ namespace System
 		LeftWindows = 0x5B,  // Microsoft Natural keyboard
 		RightWindows = 0x5C,  // Microsoft Natural keyboard
 		Applications = 0x5D,  // Microsoft Natural keyboard
-		//Reserved_0x5E = 0x5E, Reserved(±£Áô)
+		//Reserved_0x5E = 0x5E, Reserved(ä¿ç•™)
 		Sleep = 0x5F,  // Computer Sleep Key
 		NumPad0 = 0x60,
 		NumPad1 = 0x61,
@@ -226,7 +233,7 @@ namespace System
 		const bool Alt;
 		const bool Ctrl;
 	};
-	Warning("²ÎÊıĞèÒª »»³É const String& text")
+	Warning("å‚æ•°éœ€è¦ æ¢æˆ const String& text")
 		/// <summary>A Static class for command line window operations.</summary>
 		class Console abstract
 	{
@@ -234,7 +241,7 @@ namespace System
 		static ConsoleKeyInfo ReadKey();
 		static void Clear();
 		static LPTSTR GetTitle();
-		static bool SetTitle(LPCTSTR value);//TODO:²ÎÊıĞèÒª »»³É const String& text
+		static bool SetTitle(LPCTSTR value);//TODO:å‚æ•°éœ€è¦ æ¢æˆ const String& text
 
 		static int GetBufferHeight();
 		static void SetBufferHeight(int value);

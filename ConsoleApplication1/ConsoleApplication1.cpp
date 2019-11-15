@@ -22,7 +22,7 @@ int main()
 		0x0E, 0x0E
 	};*/
 
-	Console::SetForegroundColor(ConsoleColor::Gray);
+	Console::SetForegroundColor(ConsoleColor::Blue);
 	Console::Write("dddddd");
 
 

@@ -1,19 +1,11 @@
-#include "_.h"
+ï»¿#include "_.h"
 #include <string>
 #include "Console.h"
 #include "String.h"
-#if defined _MSVC
 #include <Windows.h>
-using namespace std;
-#elif defined _GCC
-#include <iostream>
-#include <string>
-using namespace std;
-#endif
-
-
 
 namespace System {
+	using namespace std;
 
 
 	ConsoleKeyInfo::ConsoleKeyInfo(ConsoleKey key, CHAR _char, bool shift, bool alt, bool ctrl)
@@ -235,7 +227,7 @@ namespace System {
 	{
 		CONSOLE_SCREEN_BUFFER_INFO csbi = GetBufferInfo();
 		SMALL_RECT srWindow = csbi.srWindow;
-		Warning("ÏÂÃæÁ½¸öÅ×³öÒì³£²¿·Ö×Ö·û´®Æ´½ÓÄ¿Ç°»¹ÓĞÎÊÌâ");
+		Warning("ä¸‹é¢ä¸¤ä¸ªæŠ›å‡ºå¼‚å¸¸éƒ¨åˆ†å­—ç¬¦ä¸²æ‹¼æ¥ç›®å‰è¿˜æœ‰é—®é¢˜");
 
 		if (width < srWindow.Right + 1 || width >= INT16_MAX)
 			throw "width must >=" + (srWindow.Right + 1);//? + " and <" + INT16_MAX
