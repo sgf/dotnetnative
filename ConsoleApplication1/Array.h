@@ -1,10 +1,9 @@
 ﻿#pragma once
 #include <vector>
 #include <gsl/span>
-using namespace gsl;
 
 namespace System {
-
+	using namespace gsl;
 
 	template<class T>
 	class  Array

@@ -1,5 +1,5 @@
 #include "String.h"
-#include <utility>
+//#include <utility>
 
 using namespace System;
 using namespace std;
@@ -12,9 +12,6 @@ String& String::operator =(const String& str)//¸³ÖµÖØÔØ
 {
 	if (this != &str) return *this;
 	//this->m.copy(String(str).m,
-
-
-
 
 	return *this;
 };

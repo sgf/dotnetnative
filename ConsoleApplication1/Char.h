@@ -3,11 +3,10 @@
 #include "UnicodeCategory.h"
 #include "Int32.h"
 #include "Array.h"
-using namespace std;
 
 
 namespace System {
-
+	using namespace std;
 
 	template<class T>
 	int length(T& arr)

@@ -10,7 +10,6 @@ namespace ConsoleNetApp1 {
 
         static void Main(string[] args) {
 
-
             foreach (var l in new DYTest().GetRlt()) {
                 Console.WriteLine(l.id);
                 Console.WriteLine(l.text);

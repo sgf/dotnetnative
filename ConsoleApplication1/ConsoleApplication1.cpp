@@ -1,10 +1,9 @@
 ﻿// ConsoleApplication1.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
-
-#include <iostream>
 #include "String.h"
 #include "Int32.h"
 #include "Char.h"
+#include "Console.h"
 using namespace System;
 
 template<size_t N>
@@ -23,6 +22,8 @@ int main()
 		0x0E, 0x0E
 	};*/
 
+	Console::SetForegroundColor(ConsoleColor::Gray);
+	Console::Write("dddddd");
 
 
 	const Array<Byte> Latin1CharInfo = {

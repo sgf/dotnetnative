@@ -2,17 +2,17 @@
 #include "Int32.h"
 #include <string>
 #include <gsl/string_span>
-using namespace std;
-using namespace gsl;
 
 namespace System {
+	using namespace std;
+	using namespace gsl;
 
 	/// <summary>
 	/// 大型字符串
 	/// </summary>
 	struct smallString {
 	private:
-		byte length;
+		std::byte length;
 
 	public:
 		const inline static i32 smallMaxSize = 25;

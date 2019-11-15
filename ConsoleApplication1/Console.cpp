@@ -1,110 +1,443 @@
+#include "_.h"
+#include <string>
 #include "Console.h"
 #include "String.h"
-
 #if defined _MSVC
 #include <Windows.h>
+using namespace std;
 #elif defined _GCC
 #include <iostream>
 #include <string>
 using namespace std;
 #endif
 
-using namespace System;
 
-void Console::Write(const wchar_t* string, i32 length)
-{
-#if defined _MSVC
-	HANDLE outHandle = GetStdHandle(STD_OUTPUT_HANDLE);
-	DWORD fileMode = 0;
-	DWORD written = 0;
-	if ((GetFileType(outHandle) & FILE_TYPE_CHAR) && GetConsoleMode(outHandle, &fileMode))
+
+namespace System {
+
+
+	ConsoleKeyInfo::ConsoleKeyInfo(ConsoleKey key, CHAR _char, bool shift, bool alt, bool ctrl)
+		: Key(key), Char(_char), Shift(shift), Alt(alt), Ctrl(ctrl)
 	{
-		WriteConsole(outHandle, string, (int)length, &written, 0);
 	}
-	else
+
+	HANDLE Console::GetConsoleInputHandle()
 	{
-		int codePage = GetConsoleOutputCP();
-		int charCount = WideCharToMultiByte(codePage, 0, string, -1, 0, 0, 0, 0);
-		char* codePageBuffer = new char[charCount];
-		WideCharToMultiByte(codePage, 0, string, -1, codePageBuffer, charCount, 0, 0);
-		WriteFile(outHandle, codePageBuffer, charCount - 1, &written, 0);
-		delete[] codePageBuffer;
+		return GetStdHandle(STD_INPUT_HANDLE);
 	}
-#elif defined _GCC
-	String s(string, string + length);
-	wcout << s << ends;
-#endif
-}
 
-void Console::Write(const wchar_t* string)
-{
-	Write(string, wcslen(string));
-}
-
-void Console::Write(const String& string)
-{
-	Write(string.Buffer(), string.Length());
-}
-
-void Console::WriteLine(const String& string)
-{
-	Write(string);
-	Write(L"\r\n");
-}
-
-String Console::Read()
-{
-#if defined _MSVC
-	String result;
-	DWORD count;
-	for (;;)
+	HANDLE Console::GetConsoleOutputHandle()
 	{
-		wchar_t buffer;
-		ReadConsole(GetStdHandle(STD_INPUT_HANDLE), &buffer, 1, &count, 0);
-		if (buffer == L'\r')
+		return GetStdHandle(STD_OUTPUT_HANDLE);
+	}
+
+	WORD Console::ConsoleColorToColorAttribute(ConsoleColor color, bool isBackground)
+	{
+		if ((((int)color) & ~0xf) != 0)
+			throw 1;
+
+		WORD c = (WORD)color;
+		if (isBackground)
+			c <<= 4;
+		return c;
+	}
+
+	ConsoleColor Console::ColorAttributeToConsoleColor(WORD c)
+	{
+		if ((c & 0xf0) != 0)
+			c = c >> 4;
+		return (ConsoleColor)c;
+	}
+
+	CONSOLE_SCREEN_BUFFER_INFO Console::GetBufferInfo()
+	{
+		bool junk;
+		return GetBufferInfo(true, junk);
+	}
+
+	CONSOLE_SCREEN_BUFFER_INFO Console::GetBufferInfo(bool throwOnNoConsole, bool& succeeded)
+	{
+#pragma warning(disable : 4800)
+		succeeded = false;
+		CONSOLE_SCREEN_BUFFER_INFO csbi;
+		bool success;
+
+		HANDLE hConsole = GetConsoleOutputHandle();
+		if (hConsole == INVALID_HANDLE_VALUE)
 		{
-			ReadConsole(GetStdHandle(STD_INPUT_HANDLE), &buffer, 1, &count, 0);
-			break;
+			if (!throwOnNoConsole)
+				return CONSOLE_SCREEN_BUFFER_INFO();
+			else
+				throw 0;
 		}
-		else if (buffer == L'\n')
+		success = GetConsoleScreenBufferInfo(hConsole, &csbi);
+		if (!success)
 		{
-			break;
+			success = GetConsoleScreenBufferInfo(GetStdHandle(STD_ERROR_HANDLE), &csbi);
+			if (!success)
+				success = GetConsoleScreenBufferInfo(GetStdHandle(STD_INPUT_HANDLE), &csbi);
+
+			if (!success)
+			{
+				int errorCode = GetLastError();
+				if (errorCode == ERROR_INVALID_HANDLE && !throwOnNoConsole)
+					return CONSOLE_SCREEN_BUFFER_INFO();
+				throw errorCode;
+			}
+		}
+		if (!_haveReadDefaultColors)
+		{
+			// Fetch the default foreground and background color for the
+			// ResetColor method.
+			_defaultColors = (BYTE)(csbi.wAttributes & 0xff);
+			_haveReadDefaultColors = true;
+		}
+
+		succeeded = true;
+		return csbi;
+#pragma warning(default : 4800)
+	}
+
+	bool Console::IsModKey(INPUT_RECORD ir)
+	{
+		WORD keyCode = ir.Event.KeyEvent.wVirtualKeyCode;
+		return ((keyCode >= 0x10 && keyCode <= 0x12) || keyCode == 0x14 || keyCode == 0x90 || keyCode == 0x91);
+	}
+
+	ConsoleKeyInfo Console::ReadKey()
+	{
+		INPUT_RECORD ir;
+		DWORD numEventRead = -1;
+		bool r;
+
+		if (_cachedInputRecord.EventType == KEY_EVENT)
+		{
+			ir = _cachedInputRecord;
+			if (_cachedInputRecord.Event.KeyEvent.wRepeatCount == 0)
+			{
+				_cachedInputRecord.EventType = -1;
+			}
+			else
+			{
+				_cachedInputRecord.Event.KeyEvent.wRepeatCount--;
+			}
 		}
 		else
 		{
-			result = result + buffer;
+#pragma warning(disable : 4800)
+			while (true)
+			{
+				r = ReadConsoleInput(GetConsoleInputHandle(), &ir, 1, &numEventRead);
+
+				//if (!r || numEventsRead == 0)
+				//{
+				//	// This will fail when stdin is redirected from a file or pipe. 
+				//	// We could theoretically call Console.Read here, but I 
+				//	// think we might do some things incorrectly then.
+				//	throw new InvalidOperationException(Environment.GetResourceString("InvalidOperation_ConsoleReadKeyOnFile"));
+				//}
+
+				WORD keyCode = ir.Event.KeyEvent.wVirtualKeyCode;
+
+				if (!(ir.EventType == KEY_EVENT && ir.Event.KeyEvent.bKeyDown))
+					if (keyCode != 0x12)
+						continue;
+
+				char ch = ir.Event.KeyEvent.uChar.AsciiChar;
+				if (ch == 0)
+					if (IsModKey(ir))
+						continue;
+
+				WORD key = keyCode;
+				if (((ir.Event.KeyEvent.dwControlKeyState & 0x0003) != 0) && ((key >= VK_NUMPAD0 && key <= VK_NUMPAD9)
+					|| (key == VK_CLEAR) || (key == VK_INSERT)
+					|| (key >= 0x21 && key <= 0x28)))
+					continue;
+
+
+				if (ir.Event.KeyEvent.wRepeatCount > 1)
+				{
+					ir.Event.KeyEvent.wRepeatCount--;
+					_cachedInputRecord = ir;
+				}
+				break;
+			}
+#pragma warning(default : 4800)
+		}
+
+		DWORD state = ir.Event.KeyEvent.dwControlKeyState;
+
+		bool shift;
+		bool alt;
+		bool control;
+		shift = (state & 0x0010) != 0;
+		alt = (state & (0x0002 | 0x0001)) != 0;
+		control = (state & (0x0008 | 0x0004)) != 0;
+
+#ifdef _UNICODE
+		return ConsoleKeyInfo((ConsoleKey)ir.Event.KeyEvent.wVirtualKeyCode, ir.Event.KeyEvent.uChar.UnicodeChar, shift, alt, control);
+#else
+		return ConsoleKeyInfo((ConsoleKey)ir.Event.KeyEvent.wVirtualKeyCode, ir.Event.KeyEvent.uChar.AsciiChar, shift, alt, control);
+#endif
+	}
+
+	void Console::Clear()
+	{
+		COORD coordScreen = COORD();
+		CONSOLE_SCREEN_BUFFER_INFO csbi;
+		int conSize;
+
+		HANDLE hConsole = GetConsoleOutputHandle();
+		GetConsoleScreenBufferInfo(hConsole, &csbi);
+		conSize = csbi.dwSize.X * csbi.dwSize.Y;
+
+		DWORD numCellsWritten = 0;
+		FillConsoleOutputCharacter(hConsole, ' ', conSize, coordScreen, &numCellsWritten);
+		numCellsWritten = 0;
+		FillConsoleOutputAttribute(hConsole, csbi.wAttributes, conSize, coordScreen, &numCellsWritten);
+		SetConsoleCursorPosition(hConsole, coordScreen);
+	}
+
+	LPTSTR Console::GetTitle()
+	{
+		LPTSTR result = new TCHAR[260];
+		GetConsoleTitle(result, 260);
+		return result;
+	}
+
+	bool Console::SetTitle(LPCTSTR value)
+	{
+		return SetConsoleTitle(value) != 0;
+	}
+
+	int Console::GetBufferHeight()
+	{
+		CONSOLE_SCREEN_BUFFER_INFO csbi = GetBufferInfo();
+		return csbi.dwSize.Y;
+	}
+
+	void Console::SetBufferHeight(int value)
+	{
+		SetBufferSize(GetBufferWidth(), value);
+	}
+
+	int Console::GetBufferWidth()
+	{
+		CONSOLE_SCREEN_BUFFER_INFO csbi = GetBufferInfo();
+		return csbi.dwSize.X;
+	}
+
+	void Console::SetBufferWidth(int value)
+	{
+		SetBufferSize(value, GetBufferHeight());
+	}
+	void Console::SetBufferSize(int width, int height)
+	{
+		CONSOLE_SCREEN_BUFFER_INFO csbi = GetBufferInfo();
+		SMALL_RECT srWindow = csbi.srWindow;
+		Warning("下面两个抛出异常部分字符串拼接目前还有问题");
+
+		if (width < srWindow.Right + 1 || width >= INT16_MAX)
+			throw "width must >=" + (srWindow.Right + 1);//? + " and <" + INT16_MAX
+		if (height < srWindow.Bottom + 1 || height >= INT16_MAX)
+			throw "height must >=" + (srWindow.Bottom + 1);//?  + "and <" + INT16_MAX
+
+		COORD size;
+		size.X = (SHORT)width;
+		size.Y = (SHORT)height;
+		bool r = SetConsoleScreenBufferSize(GetConsoleOutputHandle(), size);
+	}
+
+	int Console::GetWindowHeight()
+	{
+		CONSOLE_SCREEN_BUFFER_INFO csbi = GetBufferInfo();
+		return csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
+	}
+
+	void Console::SetWindowHeight(int value)
+	{
+		SetWindowSize(GetWindowWidth(), value);
+	}
+
+	int Console::GetWindowWidth()
+	{
+		CONSOLE_SCREEN_BUFFER_INFO csbi = GetBufferInfo();
+		return csbi.srWindow.Bottom - csbi.srWindow.Left + 1;
+	}
+
+	void Console::SetWindowWidth(int value)
+	{
+		SetWindowSize(value, GetWindowHeight());
+	}
+
+	void Console::SetWindowSize(int width, int height)
+	{
+		if (width <= 0)
+			throw "width must > 0 ";
+		if (height <= 0)
+			throw "height must > 0 ";
+
+		CONSOLE_SCREEN_BUFFER_INFO csbi = GetBufferInfo();
+		bool r;
+
+		bool resizeBuffer = false;
+		COORD size;
+		size.X = csbi.dwSize.X;
+		size.Y = csbi.dwSize.Y;
+		if (csbi.dwSize.X < csbi.srWindow.Left + width)
+		{
+			if (csbi.srWindow.Left >= INT16_MAX - width)
+				throw "width must <" + (INT16_MAX - width);
+			size.X = (SHORT)(csbi.srWindow.Left + width);
+			resizeBuffer = true;
+		}
+		if (csbi.dwSize.Y < csbi.srWindow.Top + height)
+		{
+			if (csbi.srWindow.Top >= INT16_MAX - height)
+				throw "height must <" + (INT16_MAX - height);
+			size.Y = (SHORT)(csbi.srWindow.Top + height);
+			resizeBuffer = true;
+		}
+		if (resizeBuffer)
+		{
+			r = SetConsoleScreenBufferSize(GetConsoleOutputHandle(), size);
+		}
+		SMALL_RECT srWindow = csbi.srWindow;
+		srWindow.Bottom = (SHORT)(srWindow.Top + height - 1);
+		srWindow.Right = (SHORT)(srWindow.Left + width - 1);
+
+		r = SetConsoleWindowInfo(GetConsoleOutputHandle(), true, &srWindow);
+		if (!r)
+		{
+			int errorCode = GetLastError();
+
+			if (resizeBuffer)
+			{
+				SetConsoleScreenBufferSize(GetConsoleOutputHandle(), csbi.dwSize);
+			}
+
+			COORD bounds = GetLargestConsoleWindowSize(GetConsoleOutputHandle());
+			if (width > bounds.X)
+				throw "width must <" + bounds.X;
+			if (height > bounds.Y)
+				throw "height must <" + bounds.Y;
 		}
 	}
-	return result;
-#elif defined _GCC
-	String s;
-	getline(wcin, s, L'\n');
-	return s.c_str();
-#endif
-}
 
-void Console::SetColor(bool red, bool green, bool blue, bool light)
-{
-#if defined _MSVC
-	WORD attribute = 0;
-	if (red)attribute |= FOREGROUND_RED;
-	if (green)attribute |= FOREGROUND_GREEN;
-	if (blue)attribute |= FOREGROUND_BLUE;
-	if (light)attribute |= FOREGROUND_INTENSITY;
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), attribute);
-	SetConsoleTextAttribute(GetStdHandle(STD_INPUT_HANDLE), attribute);
-#elif defined _GCC
-	int color = (blue ? 1 : 0) * 4 + (green ? 1 : 0) * 2 + (red ? 1 : 0);
-	if (light)
-		wprintf(L"\x1B[00;3%dm", color);
-	else
-		wprintf(L"\x1B[01;3%dm", color);
-#endif
-}
+	ConsoleColor Console::GetBackgroundColor()
+	{
+		bool succeeded;
+		CONSOLE_SCREEN_BUFFER_INFO csbi = GetBufferInfo(false, succeeded);
+		return ConsoleColor::Black;
+		WORD c = csbi.wAttributes & 0xf0;
+		return ColorAttributeToConsoleColor(c);
+	}
 
-void Console::SetTitle(const String& string)
-{
-#if defined _MSVC
-	SetConsoleTitle(string.Buffer());
-#endif
+	void Console::SetBackgroundColor(ConsoleColor value)
+	{
+		WORD c = ConsoleColorToColorAttribute(value, true);
+
+		bool succeeded;
+		CONSOLE_SCREEN_BUFFER_INFO csbi = GetBufferInfo(false, succeeded);
+
+		WORD attrs = csbi.wAttributes;
+		attrs &= ~0xf0;
+		attrs |= c;
+
+		SetConsoleTextAttribute(GetConsoleOutputHandle(), attrs);
+	}
+
+	ConsoleColor Console::GetForegroundColor()
+	{
+		bool succeeded;
+		CONSOLE_SCREEN_BUFFER_INFO csbi = GetBufferInfo(false, succeeded);
+		return ConsoleColor::Gray;
+		WORD c = csbi.wAttributes & 0x0f;
+		return ColorAttributeToConsoleColor(c);
+	}
+
+	void Console::SetForegroundColor(ConsoleColor value)
+	{
+		WORD c = ConsoleColorToColorAttribute(value, false);
+
+		bool succeeded;
+		CONSOLE_SCREEN_BUFFER_INFO csbi = GetBufferInfo(false, succeeded);
+
+		WORD attrs = csbi.wAttributes;
+		attrs &= ~0x0f;
+		attrs |= c;
+
+		SetConsoleTextAttribute(GetConsoleOutputHandle(), attrs);
+	}
+
+	void Console::ResetColor()
+	{
+		bool succeeded;
+		CONSOLE_SCREEN_BUFFER_INFO csbi = GetBufferInfo(false, succeeded);
+
+		if (!succeeded)
+			return;
+
+		WORD defaultAttrs = _defaultColors;
+		SetConsoleTextAttribute(GetConsoleOutputHandle(), defaultAttrs);
+	}
+
+	void Console::Write(const char* text)
+	{
+		WriteFile(GetConsoleOutputHandle(), text, strlen(text), 0, 0);
+	}
+
+	void Console::WriteLine()
+	{
+		char ch = '\n';
+		WriteFile(GetConsoleOutputHandle(), &ch, 1, 0, 0);
+	}
+
+	void Console::WriteLine(const char* text)
+	{
+		Write(text);
+		WriteLine();
+	}
+
+	bool Console::SetCursorPosition(int left, int top)
+	{
+		if (left < 0 || left >= INT16_MAX)
+			return false;
+		if (top < 0 || top >= INT16_MAX)
+			return false;
+#pragma warning(disable : 4800)
+		return SetConsoleCursorPosition(GetConsoleOutputHandle(), { (short)left,(short)top });
+#pragma warning(default : 4800)
+	}
+
+	int Console::GetCursorLeft()
+	{
+		bool succeeded;
+		CONSOLE_SCREEN_BUFFER_INFO csbi = GetBufferInfo(false, succeeded);
+		return csbi.dwCursorPosition.X;
+	}
+
+	bool Console::SetCursorLeft(int value)
+	{
+		return SetCursorPosition(value, GetCursorTop());
+	}
+
+	int Console::GetCursorTop()
+	{
+		bool succeeded;
+		CONSOLE_SCREEN_BUFFER_INFO csbi = GetBufferInfo(false, succeeded);
+		return csbi.dwCursorPosition.Y;
+	}
+
+	bool Console::SetCursorTop(int value)
+	{
+		return SetCursorPosition(GetCursorLeft(), value);
+	}
+
+	INPUT_RECORD Console::_cachedInputRecord;
+	BYTE Console::_defaultColors;
+	BOOL Console::_haveReadDefaultColors;
+
+
+
 }

@@ -1,10 +1,9 @@
 ﻿#pragma once
 #include  <memory>
 #include <iostream>
-using namespace std;
 
 namespace System {
-
+	using namespace std;
 	class String;
 	class i32 {
 	private:
@@ -49,8 +48,6 @@ namespace System {
 		~i32();
 
 	};
-
-
 
 
 }

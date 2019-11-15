@@ -6,20 +6,13 @@ namespace System {
 	class IEnumerator :Interface
 	{
 	public:
-		IEnumerator();
-		~IEnumerator();
+		IEnumerator() {}
+		~IEnumerator() {}
 
 	private:
 
 	};
 
-	IEnumerator::IEnumerator()
-	{
-	}
-
-	IEnumerator::~IEnumerator()
-	{
-	}
 
 
 }
