@@ -376,9 +376,7 @@ namespace System {
 
 	void Console::Write(const String& text)
 	{
-		auto ptr = text.ToPtr();
-		auto len = text.Length();
-		WriteConsoleW(GetConsoleOutputHandle(), ptr, len, 0, 0);
+		WriteConsoleW(GetConsoleOutputHandle(), text.ToPtr().get(), text.Length(), 0, 0);
 		//WriteFile(GetConsoleOutputHandle(), text, strlen(text), 0, 0);
 	}
 

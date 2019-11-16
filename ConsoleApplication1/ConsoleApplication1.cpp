@@ -20,10 +20,11 @@ int main()
 {
 
 	Console::SetForegroundColor(ConsoleColor::Blue);
-	String s = u"dddddd";
+	String  s = u"dddddd";
 	Console::Write(s);
 	//cu16string_span<> aa = ensure_z(u"dddddd");
-	//WriteConsoleW(GetStdHandle(STD_OUTPUT_HANDLE), to_string(aa).c_str(), 6, 0, 0);
+	//const char16_t* p = to_string(aa).c_str();
+	//WriteConsoleW(GetStdHandle(STD_OUTPUT_HANDLE), p, 6, 0, 0);
 
 	//const Array<Byte> Latin1CharInfo = {
 	//	0x0E, 0x0E

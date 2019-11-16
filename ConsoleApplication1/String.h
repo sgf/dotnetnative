@@ -2,6 +2,8 @@
 #include "Int32.h"
 #include <string>
 #include <gsl/string_span>
+#include <Windows.h>
+#include <memory>
 
 namespace System {
 	using namespace std;
@@ -78,8 +80,8 @@ namespace System {
 			return new StrP<T_CHAR_TYPE>(&this->m.cbegin());
 		}
 
-		const char16_t* ToPtr() const {
-			return to_string(m).c_str();
+		const shared_ptr<const char16_t> ToPtr() const {
+			return make_shared<const char16_t>(*to_string(m).c_str());
 		}
 
 		/// <summary>
