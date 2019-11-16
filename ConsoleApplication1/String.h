@@ -80,8 +80,8 @@ namespace System {
 			return new StrP<T_CHAR_TYPE>(&this->m.cbegin());
 		}
 
-		const shared_ptr<const char16_t> ToPtr() const {
-			return make_shared<const char16_t>(*to_string(m).c_str());
+		const u16string ToPtr() const {
+			return to_string(m);
 		}
 
 		/// <summary>
