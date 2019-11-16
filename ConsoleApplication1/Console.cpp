@@ -374,18 +374,22 @@ namespace System {
 		SetConsoleTextAttribute(GetConsoleOutputHandle(), defaultAttrs);
 	}
 
-	void Console::Write(const char* text)
+	void Console::Write(const String& text)
 	{
-		WriteFile(GetConsoleOutputHandle(), text, strlen(text), 0, 0);
+		auto ptr = text.ToPtr();
+		auto len = text.Length();
+		WriteConsoleW(GetConsoleOutputHandle(), ptr, len, 0, 0);
+		//WriteFile(GetConsoleOutputHandle(), text, strlen(text), 0, 0);
 	}
 
 	void Console::WriteLine()
 	{
-		char ch = '\n';
-		WriteFile(GetConsoleOutputHandle(), &ch, 1, 0, 0);
+		auto ch = u'\n';
+		WriteConsoleW(GetConsoleOutputHandle(), &ch, 1, 0, 0);
+		//WriteFile(GetConsoleOutputHandle(), &ch, 1, 0, 0);
 	}
 
-	void Console::WriteLine(const char* text)
+	void Console::WriteLine(const String& text)
 	{
 		Write(text);
 		WriteLine();

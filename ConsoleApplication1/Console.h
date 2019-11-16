@@ -264,13 +264,13 @@ namespace System
 		/// Write to the command line window
 		/// </summary>
 		/// <param name="text"></param>
-		static void Write(const char* text);
+		static void Write(const String& text);
 		static void WriteLine();
 		/// <summary>
 		/// Write to the command line window with a CRLF(line end).
 		/// </summary>
 		/// <param name="text">Content to write.</param>
-		static void WriteLine(const char* text);
+		static void WriteLine(const String& text);
 
 		static bool SetCursorPosition(int left, int top);
 		static int GetCursorLeft();

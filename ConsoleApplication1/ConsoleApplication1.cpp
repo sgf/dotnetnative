@@ -18,17 +18,16 @@ String* operator +(char16_t const (&left)[N], Char c) {
 
 int main()
 {
-	/*auto aa = {
-		0x0E, 0x0E
-	};*/
 
 	Console::SetForegroundColor(ConsoleColor::Blue);
-	Console::Write("dddddd");
+	String s = u"dddddd";
+	Console::Write(s);
+	//cu16string_span<> aa = ensure_z(u"dddddd");
+	//WriteConsoleW(GetStdHandle(STD_OUTPUT_HANDLE), to_string(aa).c_str(), 6, 0, 0);
 
-
-	const Array<Byte> Latin1CharInfo = {
-		0x0E, 0x0E
-	};
+	//const Array<Byte> Latin1CharInfo = {
+	//	0x0E, 0x0E
+	//};
 
 	String str = u"Hello World!\n";
 	int32_t i1 = str.Length();
@@ -39,8 +38,8 @@ int main()
 	//length();
 	//String ccc = u"Hello World!\n";
 
-	//std::cout << strlen(ccc);;
-	//std::cout << ccc;
+		//std::cout << strlen(ccc);;
+		//std::cout << ccc;
 	getchar();
 }
 

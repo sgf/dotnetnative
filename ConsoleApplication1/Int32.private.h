@@ -10,8 +10,9 @@ namespace System {
 
 		}
 		inline static String ToString(i32 i) {
-			auto str = u"123";
-			return str;
+			/*auto str = u"123";
+			return str;*/
+			return String();
 			//  shared_ptr<String> return make_shared<String>(new String(u"111"));
 		}
 

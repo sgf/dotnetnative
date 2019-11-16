@@ -74,9 +74,6 @@
     <ClInclude Include="gc.h">
       <Filter>头文件\core</Filter>
     </ClInclude>
-    <ClInclude Include="Array.h">
-      <Filter>头文件\collections</Filter>
-    </ClInclude>
     <ClInclude Include="_.h">
       <Filter>头文件</Filter>
     </ClInclude>
