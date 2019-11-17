@@ -16,10 +16,41 @@ String* operator +(char16_t const (&left)[N], Char c) {
 	return new String(u"");
 }
 
+class Test {
+public:
+	Test() {
+		Console::Write(u"__FUNCTION__");
+	}
+
+	~Test() {
+		Console::Write(u"释放");
+	}
+};
+
+auto test1() {
+	auto a = Test();
+	return a;
+}
+
+
 int main()
 {
+#ifndef  int
+#define int i32
+#define var auto
+#endif
+	Console::SetForegroundColor(ConsoleColor::Cyan);
 
-	Console::SetForegroundColor(ConsoleColor::Blue);
+	int i = 32;
+	var v = i.ToString();
+	Console::Write(v);
+	Console::Write(((i32)sizeof(v)).ToString());
+	Console::Write(((i32)sizeof(i32)).ToString());
+
+
+	auto vvv = test1();
+
+
 	String  s = u"dddddd";
 	Console::Write(s);
 	//cu16string_span<> aa = ensure_z(u"dddddd");

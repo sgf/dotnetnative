@@ -9,10 +9,10 @@ namespace System {
 		i32Impl() {
 
 		}
-		inline static String ToString(i32 i) {
+		inline static String* ToString(i32 i) {
 			/*auto str = u"123";
 			return str;*/
-			return String();
+			return new String(u"aaa");
 			//  shared_ptr<String> return make_shared<String>(new String(u"111"));
 		}
 

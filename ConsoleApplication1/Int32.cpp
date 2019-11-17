@@ -25,7 +25,7 @@ namespace System {
 	}
 
 	String&& i32::ToString() {
-		return i32Impl::ToString(*this);
+		return std::move(*i32Impl::ToString(*this));
 	}
 
 
