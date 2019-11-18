@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
+﻿//using System.Collections;
+//using System.Collections.Generic;
+//using System.Dynamic;
+//using System.Linq;
 using ClassLibrary1;
+using System;
 
 namespace ConsoleNetApp1 {
     class Program {
+
 
         static void Main(string[] args) {
 

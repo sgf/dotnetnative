@@ -33,6 +33,7 @@ auto test1() {
 }
 
 #ifndef  int
+#define string String
 #define int i32
 #define var auto
 #endif
@@ -40,14 +41,13 @@ auto test1() {
 int32_t main()
 {
 	Console::SetForegroundColor(ConsoleColor::Cyan);
-
 	int i = 32;
 	var v = i.ToString();
 	Console::Write(v);
-	sizeof(v).Length();//? 这里很奇怪 为什么sizeof(v) 默认转换成了 String 然后还可以直接调用 Lenggh();
-	Console::Write(((i32)sizeof(v)).ToString());
+	var vvvvvvv = sizeof(Test);
+	var vvvv = sizeof(i);
+	Console::Write(((i32)vvvv).ToString());
 	Console::Write(((i32)sizeof(i32)).ToString());
-
 
 	auto vvv = test1();
 

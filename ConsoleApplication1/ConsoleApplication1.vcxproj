@@ -171,7 +171,7 @@
     <ClInclude Include="IEnumerator.h" />
     <ClInclude Include="Int32.h" />
     <ClInclude Include="Int32.private.h" />
-    <ClInclude Include="Integer.h" />
+    <ClInclude Include="Number.Formatting.h" />
     <ClInclude Include="Interface.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="String.h" />

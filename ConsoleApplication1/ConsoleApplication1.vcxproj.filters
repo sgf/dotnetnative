@@ -22,6 +22,9 @@
     <Filter Include="头文件\collections">
       <UniqueIdentifier>{dc2b5cc5-6e6a-4d6d-a955-84d1423fb639}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\base">
+      <UniqueIdentifier>{c7a05c0a-66f6-44cb-ae53-89fccf6fec89}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleApplication1.cpp">
@@ -41,24 +44,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Int32.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="String.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Int32.private.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Math.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Integer.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Char.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="UTF8Encoding.h">
       <Filter>头文件\text</Filter>
     </ClInclude>
@@ -77,9 +62,6 @@
     <ClInclude Include="_.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="StringBuilder.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="IEnumerator.h">
       <Filter>头文件\collections</Filter>
     </ClInclude>
@@ -88,6 +70,27 @@
     </ClInclude>
     <ClInclude Include="Console.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Int32.h">
+      <Filter>头文件\base</Filter>
+    </ClInclude>
+    <ClInclude Include="Int32.private.h">
+      <Filter>头文件\base</Filter>
+    </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>头文件\base</Filter>
+    </ClInclude>
+    <ClInclude Include="String.h">
+      <Filter>头文件\base</Filter>
+    </ClInclude>
+    <ClInclude Include="StringBuilder.h">
+      <Filter>头文件\base</Filter>
+    </ClInclude>
+    <ClInclude Include="Char.h">
+      <Filter>头文件\base</Filter>
+    </ClInclude>
+    <ClInclude Include="Number.Formatting.h">
+      <Filter>头文件\base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
