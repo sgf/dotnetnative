@@ -36,6 +36,7 @@ auto test1() {
 #define string String
 #define int i32
 #define var auto
+#define sizeof(exp) ((i32)sizeof(exp))
 #endif
 
 int32_t main()
@@ -46,8 +47,9 @@ int32_t main()
 	Console::Write(v);
 	var vvvvvvv = sizeof(Test);
 	var vvvv = sizeof(i);
-	Console::Write(((i32)vvvv).ToString());
-	Console::Write(((i32)sizeof(i32)).ToString());
+	//Console::Write(vvvv.ToString());
+	var v1 = sizeof(Test).ToString();
+	Console::Write(sizeof(i32).ToString());
 
 	auto vvv = test1();
 
