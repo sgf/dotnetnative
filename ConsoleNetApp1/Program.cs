@@ -2,14 +2,20 @@
 //using System.Collections.Generic;
 //using System.Dynamic;
 //using System.Linq;
-using ClassLibrary1;
 using System;
 
 namespace ConsoleNetApp1 {
+
+
+
+
     class Program {
 
 
         static void Main(string[] args) {
+
+            ABase<ABC> abc = new ABC();
+
 
             foreach (var l in new DYTest().GetRlt()) {
                 Console.WriteLine(l.id);

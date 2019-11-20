@@ -16,6 +16,7 @@ String* operator +(char16_t const (&left)[N], Char c) {
 	return new String(u"");
 }
 
+
 class Test {
 public:
 	Test() {
@@ -41,6 +42,9 @@ auto test1() {
 
 int32_t main()
 {
+	std::unique_ptr<string> ptr = ::make_unique<string>(u"aaaa");
+	ptr->ToPtr();
+
 	Console::SetForegroundColor(ConsoleColor::Cyan);
 	int i = 32;
 	var v = i.ToString();
