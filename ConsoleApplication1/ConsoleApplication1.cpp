@@ -4,6 +4,7 @@
 #include "Int32.h"
 #include "Char.h"
 #include "Console.h"
+#include "_csp.h"
 using namespace System;
 
 template<size_t N>
@@ -15,6 +16,7 @@ template<size_t N>
 String* operator +(char16_t const (&left)[N], Char c) {
 	return new String(u"");
 }
+
 
 
 class Test {
@@ -33,17 +35,13 @@ auto test1() {
 	return a;
 }
 
-#ifndef  int
-#define string String
-#define int i32
-#define var auto
-#define sizeof(exp) ((i32)sizeof(exp))
-#endif
-
 int32_t main()
 {
-	std::unique_ptr<string> ptr = ::make_unique<string>(u"aaaa");
-	ptr->ToPtr();
+	int i33 = 32;
+	var ddd = &i33;
+	var ddd33 = ddd;
+	//std::unique_ptr<string> ptr = ::make_unique<string>(u"aaaa");
+	//ptr->ToPtr();
 
 	Console::SetForegroundColor(ConsoleColor::Cyan);
 	int i = 32;

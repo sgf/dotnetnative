@@ -92,6 +92,9 @@
     <ClInclude Include="Number.Formatting.h">
       <Filter>头文件\base</Filter>
     </ClInclude>
+    <ClInclude Include="_csp.h">
+      <Filter>头文件\base</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Char.txt">

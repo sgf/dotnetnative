@@ -30,7 +30,8 @@ namespace System {
 			}
 
 			std::to_wstring()*/
-			return new String(format(fmt(u"{2}"), (int32_t)i));
+			return new String(u"ddd");
+			//return new String(format(fmt(u"{2}"), (int32_t)i));
 			//  shared_ptr<String> return make_shared<String>(new String(u"111"));
 		}
 
