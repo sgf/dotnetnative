@@ -8,18 +8,18 @@ using namespace std;
 template<class T>
 class Object {
 
+public:
 	static void* operator new(size_t size) {
 		auto tid = typeid(T)；
-			auto tname = typename(T);
-		//分配内存操作
+			//分配内存操作
 
-//static_cast(*this)
+	//static_cast(*this)
 	}
 
 };
 
 
-class SSS {
+class SSS :Object<SSS> {
 public:
 	SSS() {
 	}
@@ -30,6 +30,7 @@ public:
 
 int main()
 {
+	SSS ss = new SSS();
 	std::cout << sizeof(SSS);
 
 	std::cout << "Hello World!\n";
