@@ -19,7 +19,7 @@ public:
 };
 
 
-class SSS :Object<SSS> {
+class SSS :public Object<SSS> {
 public:
 	SSS() {
 	}
