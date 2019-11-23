@@ -22,6 +22,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleNetApp1", "ConsoleNe
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GCTest", "GCTest\GCTest.vcxproj", "{86A1239A-B0BA-422E-97F5-3A30D2054B7A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "50lines", "50lines", "{F75E1457-FF0E-440E-91AF-1B4AD7AA9455}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConsoleApplication2", "ConsoleApplication2\ConsoleApplication2.vcxproj", "{0B7D8140-65C3-487D-8B85-5F15F22412A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -104,9 +108,22 @@ Global
 		{86A1239A-B0BA-422E-97F5-3A30D2054B7A}.Release|x64.Build.0 = Release|x64
 		{86A1239A-B0BA-422E-97F5-3A30D2054B7A}.Release|x86.ActiveCfg = Release|Win32
 		{86A1239A-B0BA-422E-97F5-3A30D2054B7A}.Release|x86.Build.0 = Release|Win32
+		{0B7D8140-65C3-487D-8B85-5F15F22412A6}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{0B7D8140-65C3-487D-8B85-5F15F22412A6}.Debug|x64.ActiveCfg = Debug|x64
+		{0B7D8140-65C3-487D-8B85-5F15F22412A6}.Debug|x64.Build.0 = Debug|x64
+		{0B7D8140-65C3-487D-8B85-5F15F22412A6}.Debug|x86.ActiveCfg = Debug|Win32
+		{0B7D8140-65C3-487D-8B85-5F15F22412A6}.Debug|x86.Build.0 = Debug|Win32
+		{0B7D8140-65C3-487D-8B85-5F15F22412A6}.Release|Any CPU.ActiveCfg = Release|Win32
+		{0B7D8140-65C3-487D-8B85-5F15F22412A6}.Release|x64.ActiveCfg = Release|x64
+		{0B7D8140-65C3-487D-8B85-5F15F22412A6}.Release|x64.Build.0 = Release|x64
+		{0B7D8140-65C3-487D-8B85-5F15F22412A6}.Release|x86.ActiveCfg = Release|Win32
+		{0B7D8140-65C3-487D-8B85-5F15F22412A6}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{86A1239A-B0BA-422E-97F5-3A30D2054B7A} = {F75E1457-FF0E-440E-91AF-1B4AD7AA9455}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8FC0C829-17AC-4679-99A3-259CE085C8C0}
