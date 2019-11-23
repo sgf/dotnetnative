@@ -8,6 +8,14 @@ using namespace std;
 template<class T>
 class Object {
 
+	static void* operator new(size_t size) {
+		auto tid = typeid(T)；
+			auto tname = typename(T);
+		//分配内存操作
+
+//static_cast(*this)
+	}
+
 };
 
 
