@@ -1,45 +1,11 @@
-﻿// ConsoleApplication2.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
+﻿// GJDuckGC.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
 
 #include <iostream>
-#include <string>
-using namespace std;
-
-template<class T>
-class Object {
-
-public:
-	static void* operator new(size_t size) {
-		auto tid = typeid(T)；
-			//分配内存操作 
-	//static_cast(*this)
-	}
-
-};
-
-
-class SSS :public Object<SSS> {
-public:
-	SSS() {
-	}
-	int number;
-	string  sss;
-};
-class SSS1 :public Object<SSS1> {
-public:
-	SSS1() {
-	}
-	int number;
-	string  sss;
-};
-
 
 int main()
 {
-	auto ss = new SSS();
-	std::cout << sizeof(SSS);
-
-	std::cout << "Hello World!\n";
+    std::cout << "Hello World!\n";
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
