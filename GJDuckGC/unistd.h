@@ -6,7 +6,7 @@
 
 #include <stdlib.h>
 #include <io.h>
-#include <getopt.h> /* getopt at: https://gist.github.com/ashelly/7776712 or https://www.codeproject.com/Articles/157001/Full-getopt-Port-for-Unicode-and-Multibyte-Microso */
+ //#include <getopt.h> /* getopt at: https://gist.github.com/ashelly/7776712 or https://www.codeproject.com/Articles/157001/Full-getopt-Port-for-Unicode-and-Multibyte-Microso */
 #include <process.h> /* for getpid() and the exec..() family */
 #include <direct.h> /* for _getcwd() and _chdir() */
 

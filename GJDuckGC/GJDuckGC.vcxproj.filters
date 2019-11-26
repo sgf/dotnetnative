@@ -30,4 +30,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="inin.asm">
+      <Filter>头文件</Filter>
+    </None>
+  </ItemGroup>
 </Project>

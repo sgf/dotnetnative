@@ -7,7 +7,6 @@ using namespace std;
 
 template<class T>
 class Object {
-
 public:
 	static void* operator new(size_t size) {
 		auto tid = typeid(T)；

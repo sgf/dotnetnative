@@ -151,8 +151,9 @@ static void gc_zero_memory(void* ptr, size_t size)
 }
 static int gc_protect_memory(void* ptr, size_t size)
 {
-	void* ptr1 = (void*)(((uintptr_t)ptr / GC_PAGESIZE) * GC_PAGESIZE);
-	void* result = VirtualAlloc(ptr1, size + (ptr - ptr1), MEM_COMMIT,
+	char* _ptr = ptr;
+	void* ptr1 = (void*)(((uintptr_t)_ptr / GC_PAGESIZE) * GC_PAGESIZE);
+	void* result = VirtualAlloc(ptr1, size + (_ptr - ptr1), MEM_COMMIT,
 		PAGE_READWRITE);
 	return (ptr1 != result);
 }
@@ -204,7 +205,7 @@ extern bool GC_init(void)
 	// Initialize all of the region information structures.
 	for (size_t i = 0; i < GC_NUM_REGIONS; i++)
 	{
-		void* startptr = GC_MEMORY + i * GC_REGION_SIZE;
+		char* startptr = GC_MEMORY + i * GC_REGION_SIZE;
 		size_t unit = gc_index_unit(i);
 		size_t size = (i - gc_unit_offset(unit)) * unit + unit;
 		uintptr_t offset = (uintptr_t)startptr % size;
@@ -319,13 +320,13 @@ extern void GC_handle_error(bool fatal, int err)
 	if (err != 0)
 		errno = err;
 	gc_debug("error occured [fatal=%d, errno=%s]\n", fatal,
-		strerror(errno));
+		strerror_s(NULL, 0, errno));
 	gc_error_func_t func = gc_error_func;
 	if (func != NULL)
 		func();
 	if (fatal)
 	{
-		fprintf(stderr, "GC fatal error (%s)\n", strerror(errno));
+		fprintf(stderr, "GC fatal error (%s)\n", strerror_s(NULL, 0, errno));
 		abort();
 	}
 }
@@ -342,7 +343,7 @@ static inline void gc_maybe_collect(uint32_t size)
 			return;
 		gc_collect();
 		size_t gc_scan_size = 0;
-		size_t stacksize = gc_stackbottom - gc_stacktop();
+		size_t stacksize = (char*)gc_stackbottom - gc_stacktop();
 		gc_scan_size += 2 * stacksize;
 		gc_root_t root = gc_roots;
 		while (root != NULL)
@@ -364,7 +365,7 @@ static inline void gc_maybe_collect(uint32_t size)
 extern void* GC_malloc_index(size_t idx)
 {
 	gc_region_t region = __gc_regions + idx;
-	void* ptr;
+	char* ptr;
 
 	// (0) Check if we need to collect.
 	gc_maybe_collect(region->size);
@@ -416,7 +417,7 @@ extern void* GC_malloc_index(size_t idx)
 	// Check if we can access the memory.
 	if (ptr + region->size >= region->protectptr)
 	{
-		void* protectptr = region->protectptr;
+		char* protectptr = region->protectptr;
 		size_t protectlen = GC_PROTECT_LEN * GC_PAGESIZE;
 		protectlen = (protectlen < region->size ? region->size :
 			protectlen);
@@ -486,7 +487,7 @@ extern void GC_collect(void)
 	struct gc_root_s root_0;
 	gc_root_t root = &root_0;
 	root->ptr = (void*)gc_stacktop();
-	root->size = gc_stackbottom - root->ptr;
+	root->size = (char*)gc_stackbottom - root->ptr;
 	root->ptrptr = &root->ptr;
 	root->sizeptr = &root->size;
 	root->elemsize = 1;
@@ -508,7 +509,7 @@ static void gc_mark_init(void)
 	for (size_t i = 0; i < GC_NUM_REGIONS; i++)
 	{
 		gc_region_t region = __gc_regions + i;
-		size_t regionsize = region->freeptr - region->startptr;
+		size_t regionsize = (char*)region->freeptr - region->startptr;
 		if (regionsize == 0)
 			continue;
 		gc_total_size += regionsize;
@@ -567,7 +568,7 @@ static inline bool gc_is_marked_index(uint8_t* markptr_0, uint32_t idx)
 static void gc_mark(gc_root_t roots)
 {
 	gc_markstack_t stack =
-		(gc_markstack_t)(gc_markstack + GC_MARK_STACK_SIZE);
+		(gc_markstack_t)((char*)gc_markstack + GC_MARK_STACK_SIZE);
 	stack--;
 	stack->startptr = NULL;
 	stack->endptr = NULL;
@@ -632,13 +633,13 @@ static void gc_mark(gc_root_t roots)
 			}
 
 			gc_used_size += size;
-			ptr = region->startptr + (size_t)ptridx * (size_t)size;
+			ptr = (char*)region->startptr + (size_t)ptridx * (size_t)size;
 			gc_read_prefetch(ptr);
 
 			// Push onto mark stack:
 			stack--;
 			stack->startptr = (void**)ptr;
-			stack->endptr = (void**)(ptr + size);
+			stack->endptr = (void**)((char*)ptr + size);
 
 			if (pushed > GC_MAX_MARK_PUSH)
 			{
@@ -669,7 +670,7 @@ static void gc_sweep(void)
 		gc_region_t region = __gc_regions + i;
 		if (region->freeptr == region->startptr)
 			continue;
-		void* ptr = region->freeptr - region->size;
+		void* ptr = (char*)region->freeptr - region->size;
 		uint32_t size = region->size;
 		uint8_t* markptr = region->markptr;
 
@@ -691,13 +692,13 @@ static void gc_sweep(void)
 					diff = (diff == 0 ? 0 : GC_PAGESIZE - diff);
 					offset += diff;
 					freesize -= diff;
-					void* freeptr = region->startptr + offset;
+					void* freeptr = (char*)region->startptr + offset;
 					freesize -= freesize % GC_PAGESIZE;
 				}
 				freesize = 0;
 				if (start)
 				{
-					void* ptr = region->startptr + size * (ptridx + 1);
+					void* ptr = (char*)region->startptr + size * (ptridx + 1);
 					region->freeptr = ptr;
 					if (!returning)
 						break;
@@ -724,6 +725,6 @@ extern char* GC_strdup(const char* str)
 {
 	size_t len = strlen(str);
 	char* copy = (char*)GC_malloc(len + 1);
-	strcpy(copy, str);
+	strcpy_s(copy, len + 1, str);
 	return copy;
 }
