@@ -157,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gc.h" />
+    <ClInclude Include="inin.h" />
     <ClInclude Include="unistd.h" />
   </ItemGroup>
   <ItemGroup>

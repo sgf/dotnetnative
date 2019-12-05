@@ -172,7 +172,7 @@ static void* gc_get_stackbottom(void)
 static GC_NoInline void* gc_stacktop(void)
 {
 	void* stack_ptr;
-	asm("movq %%rsp, %0" : "=r"(stack_ptr));
+	__asm("movq %%rsp, %0" : "=r"(stack_ptr));
 	return stack_ptr;
 }
 
