@@ -3,9 +3,56 @@
 
 #include <iostream>
 
+extern "C" {
+#include "gc.h"
+}
+
+
+void* operator new(size_t sz)
+{
+	return GC_malloc(sz);
+}
+
+class CLASS1 {
+
+public:
+	CLASS1() {
+		aaa = 1;
+	}
+	int aaa;
+	int bbb;
+	int ccc;
+	int ddd;
+	int eee;
+	int fff;
+	int ggg;
+	int hhh;
+
+};
+
+
 int main()
 {
-    std::cout << "Hello World!\n";
+	try
+	{
+		if (GC_init()) {
+			auto c1 = new CLASS1();
+			std::cout << c1;
+			std::cout << "GC 初始化成功!\n";
+		}
+		else
+			std::cout << "GC 初始化失败!\n";
+
+		GC_collect();
+	}
+	catch (const std::exception & ex)
+	{
+		std::cout << ex.what();
+	}
+
+
+	std::cout << "Hello World!\n";
+
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单

@@ -5,6 +5,8 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <intrin.h>
+
 
 #define GC_INLINE static __forceinline
 #define GC_NoInline __declspec(noinline)
@@ -270,11 +272,19 @@ GC_INLINE bool GC_isptr(const void* ptr)
  */
 GC_INLINE GC_CONST size_t GC_mul128(size_t x, size_t y)
 {
+	//asm("imul %2" : "=d"(z) : "a"(x), "r"(y));//GCC 的语法不适用 
+	//解析：输入部分：
+	//mov rax,x
+	//mov any,y
+	//imul rax,any
+	//move z,rax
 	size_t z;
-	_asm "imul %2" : "=d"(z) : "a"(x), "r"(y);
-	//asm("imul %2" : "=d"(z) : "a"(x), "r"(y));//GCC 的语法不适用 改成上面的
+	//size_t hiout;
+	int64_t hiout;
+	z = _mul128(x, y, &hiout);
 	return z;
 }
+
 GC_INLINE uint32_t GC_objidx(void* ptr)
 {
 	gc_region_t region = __gc_regions + gc_index(ptr);

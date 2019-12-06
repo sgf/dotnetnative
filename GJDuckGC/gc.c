@@ -109,8 +109,8 @@ static void gc_mark(gc_root_t roots);
 static void gc_sweep(void);
 static inline bool gc_is_marked_index(uint8_t* markptr_0, uint32_t idx);
 
-#define gc_read_prefetch(ptr)   __builtin_prefetch((ptr), 0, 1)
-#define gc_write_prefetch(ptr)  __builtin_prefetch((ptr), 1)
+//#define gc_read_prefetch(ptr)   __builtin_prefetch((ptr), 0, 1)
+//#define gc_write_prefetch(ptr)  __builtin_prefetch((ptr), 1)
 
 
 
@@ -170,9 +170,14 @@ static void* gc_get_stackbottom(void)
  * Get the top of the stack.
  */
 static GC_NoInline void* gc_stacktop(void)
-{
-	void* stack_ptr;
-	__asm("movq %%rsp, %0" : "=r"(stack_ptr));
+{//__asm("movq %%rsp, %0" : "=r"(stack_ptr));
+	CONTEXT context;
+	RtlCaptureContext(&context);
+#ifdef _WIN64 
+	DWORD_PTR* stack_ptr = (DWORD_PTR*)context.Rsp;
+#else //x86
+	DWORD_PTR* stack_ptr = (DWORD_PTR*)context.Ebp;
+#endif // _WIN64
 	return stack_ptr;
 }
 
@@ -537,7 +542,7 @@ static inline bool gc_mark_index(uint8_t* markptr_0, uint32_t idx)
 {
 	gc_markunit_t* markptr = (gc_markunit_t*)markptr_0;
 	uint32_t unitidx = (idx / (sizeof(gc_markunit_t) * 8));
-	gc_write_prefetch(markptr + unitidx);
+	//gc_write_prefetch(markptr + unitidx);
 	uint32_t bitidx = (idx % (sizeof(gc_markunit_t) * 8));
 	gc_markunit_t markunit = markptr[unitidx];
 	gc_markunit_t markmask = (gc_markunit_t)0x01 << bitidx;
@@ -555,7 +560,7 @@ static inline bool gc_is_marked_index(uint8_t* markptr_0, uint32_t idx)
 {
 	gc_markunit_t* markptr = (gc_markunit_t*)markptr_0;
 	uint32_t unitidx = (idx / (sizeof(gc_markunit_t) * 8));
-	gc_read_prefetch(markptr + unitidx);
+	//gc_read_prefetch(markptr + unitidx);
 	uint32_t bitidx = (idx % (sizeof(gc_markunit_t) * 8));
 	gc_markunit_t markunit = markptr[unitidx];
 	gc_markunit_t markmask = (gc_markunit_t)0x01 << bitidx;
@@ -612,7 +617,7 @@ static void gc_mark(gc_root_t roots)
 				// reserved virtual memory addresses; not a GC pointer.
 				continue;
 			}
-			gc_read_prefetch(ptrptr);
+			//gc_read_prefetch(ptrptr);
 			size_t idx = gc_index(ptr);
 			gc_region_t region = __gc_regions + idx;
 			if (ptr >= region->freeptr || ptr < region->startptr)
@@ -634,7 +639,7 @@ static void gc_mark(gc_root_t roots)
 
 			gc_used_size += size;
 			ptr = (char*)region->startptr + (size_t)ptridx * (size_t)size;
-			gc_read_prefetch(ptr);
+			//gc_read_prefetch(ptr);
 
 			// Push onto mark stack:
 			stack--;

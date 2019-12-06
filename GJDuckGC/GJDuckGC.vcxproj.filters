@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="头文件\asm">
+      <UniqueIdentifier>{14b94a7e-a79d-4727-a5e4-488852cef09f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GJDuckGC.cpp">
@@ -27,14 +30,17 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="unistd.h">
-      <Filter>头文件</Filter>
+      <Filter>头文件\asm</Filter>
     </ClInclude>
-    <ClInclude Include="inin.h">
+    <ClInclude Include="inasm.h">
+      <Filter>头文件\asm</Filter>
+    </ClInclude>
+    <ClInclude Include="MYGC.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="inin.asm">
+    <None Include="inasm.asm">
       <Filter>头文件</Filter>
     </None>
   </ItemGroup>
